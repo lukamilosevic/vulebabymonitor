@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vule Baby Monitor — 100% Lokalni Wi-Fi Bebi Alarm</title>
-  <meta name="description" content="Pretvorite dva Android telefona u bezbedan, energetski efikasan bebi alarm bez interneta, oblaka i pretplate.">
+  <title>Vule Baby Monitor — 100% Local Wi-Fi Baby Alarm</title>
+  <meta name="description" content="Turn two Android phones into a secure, energy-efficient baby monitor with zero internet, zero cloud servers, and zero subscriptions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -48,11 +48,15 @@
 
     /* Header */
     header {
-      padding: 24px 0;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .header-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--card-border);
+      gap: 16px;
     }
 
     .logo {
@@ -78,6 +82,12 @@
       box-shadow: 0 0 20px var(--primary-glow);
     }
 
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .badge-zero-cloud {
       display: inline-flex;
       align-items: center;
@@ -89,6 +99,41 @@
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--success);
+      white-space: nowrap;
+    }
+
+    /* Language Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #05101E;
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .lang-btn:hover:not(.active) {
+      color: var(--text-main);
     }
 
     /* Hero Section */
@@ -326,6 +371,12 @@
       .hero {
         padding: 50px 0 40px;
       }
+      .header-actions {
+        gap: 8px;
+      }
+      .badge-zero-cloud {
+        display: none;
+      }
       .cta-group {
         flex-direction: column;
       }
@@ -338,13 +389,19 @@
 <body>
 
   <header>
-    <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+    <div class="container header-inner">
       <a href="#" class="logo">
         <div class="logo-icon">👶</div>
         <span>Vule Baby Monitor</span>
       </a>
-      <div class="badge-zero-cloud">
-        <span>🔒</span> 100% Zero-Cloud
+      <div class="header-actions">
+        <div class="badge-zero-cloud" data-i18n="badgeZeroCloud">
+          🔒 100% Zero-Cloud
+        </div>
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="sr">SR</button>
+        </div>
       </div>
     </div>
   </header>
@@ -354,30 +411,30 @@
     <section class="hero">
       <div class="container">
         <div class="hero-tag">
-          <span>✨</span> Nova Verzija v1.2.0 je spremna
+          <span data-i18n="heroTag">✨ Production Version v1.2 is Ready</span>
         </div>
-        <h1>
-          Pretvorite telefone u <br>
-          <span class="gradient-text">bezbedan bebi alarm</span>
+        <h1 data-i18n="heroTitle">
+          Turn your phones into a <br>
+          <span class="gradient-text">secure baby monitor</span>
         </h1>
-        <p>
-          Lokalni Wi-Fi prenos bez oblaka, bez naloga, bez interneta i bez pretplate. 
-          Zvuk, video na zahtev, pametni noćni dnevnik i vojna enkripcija.
+        <p data-i18n="heroSubtitle">
+          Local Wi-Fi transmission with zero cloud, zero accounts, zero internet, and zero subscriptions. 
+          Real-time audio, video on demand, smart nightstand wake-up, and military-grade encryption.
         </p>
 
         <div class="cta-group">
-          <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest/download/BabyMonitor.apk" class="btn btn-primary">
-            <span>⬇️</span> Preuzmi BabyMonitor.apk (~16 MB)
+          <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest/download/BabyMonitor.apk" class="btn btn-primary" data-i18n="btnPrimary">
+            <span>⬇️</span> Download BabyMonitor.apk (~16 MB)
           </a>
-          <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest" class="btn btn-secondary">
-            <span>📦</span> Sva Izdanja i Arhitekture
+          <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest" class="btn btn-secondary" data-i18n="btnSecondary">
+            <span>📦</span> All Releases & Architectures
           </a>
         </div>
 
         <div class="release-meta">
-          <span>✓ Android 6.0 do Android 15</span>
-          <span>✓ 0 bajtova mobilnog interneta</span>
-          <span>✓ Potpuna privatnost</span>
+          <span data-i18n="metaAndroid">✓ Android 6.0 to Android 15</span>
+          <span data-i18n="metaData">✓ 0 bytes mobile data</span>
+          <span data-i18n="metaPrivacy">✓ 100% Private & Local</span>
         </div>
       </div>
     </section>
@@ -386,45 +443,45 @@
     <section class="features">
       <div class="container">
         <div class="section-header">
-          <h2>Napravljeno za Miran San Roditelja</h2>
-          <p>Sve funkcije rade isključivo u okviru vaše lokalne kućne mreže.</p>
+          <h2 data-i18n="featuresHeading">Designed for Peaceful Nights</h2>
+          <p data-i18n="featuresSubtitle">All functionality operates strictly within your local home network.</p>
         </div>
 
         <div class="grid">
           <div class="card">
             <div class="card-icon">🛡️</div>
-            <h3>100% Zero-Cloud & Privatnost</h3>
-            <p>Nema servera u oblaku, registracije naloga niti slanja podataka na internet. Sve ostaje zaključano unutar vaše lokalne Wi-Fi mreže.</p>
+            <h3 data-i18n="f1Title">100% Zero-Cloud Privacy</h3>
+            <p data-i18n="f1Desc">No cloud servers, no account logins, and no telemetry sent to the internet. Everything stays strictly locked inside your home Wi-Fi network.</p>
           </div>
 
           <div class="card">
             <div class="card-icon">⚡</div>
-            <h3>Maksimalna Štednja Baterije</h3>
-            <p>Dok beba miruje (Silence-on-Wire), telefon ne prenosi zvuk i drži procesor u dubokom snu (Deep Sleep C-state). Prenos se pali samo na zvuk.</p>
+            <h3 data-i18n="f2Title">Maximum Battery Life</h3>
+            <p data-i18n="f2Desc">When baby is sleeping quietly (Silence-on-Wire), the phone stops audio streaming and keeps the processor in deep sleep (Deep Sleep C-state). Streams only on sound.</p>
           </div>
 
           <div class="card">
             <div class="card-icon">🎙️</div>
-            <h3>VOX Detekcija Zvuka</h3>
-            <p>Automatsko oglašavanje uz kalibrisani prag buke i Hangover produženje garantuje da čujete bebu čim se probudi, bez lažnih uzbuna.</p>
+            <h3 data-i18n="f3Title">VOX Sound Detection</h3>
+            <p data-i18n="f3Desc">Instant audio streaming upon baby vocalization with calibrated thresholds and a smart 10s hangover extension, eliminating false alerts from white noise.</p>
           </div>
 
           <div class="card">
             <div class="card-icon">📹</div>
-            <h3>Video na Zahtev & PiP</h3>
-            <p>Hardverski Camera2 JPEG prenos bez zagrevanja telefona, rotacija sočiva, daljinsko noćno svetlo i plutajući Picture-in-Picture prozorčić.</p>
+            <h3 data-i18n="f4Title">Video on Demand & PiP</h3>
+            <p data-i18n="f4Desc">Native Camera2 hardware JPEG streaming without phone overheating, lens rotation, remote night light, and floating Picture-in-Picture window with auto-reconnect.</p>
           </div>
 
           <div class="card">
             <div class="card-icon">🔒</div>
-            <h3>ECDH & ChaCha20 Enkripcija</h3>
-            <p>Automatska razmena ključeva i vojna AEAD enkripcija uz 4-cifreni verifikacioni PIN štite vaš signal od prisluškivanja u zgradama i hotelima.</p>
+            <h3 data-i18n="f5Title">ECDH & ChaCha20 Encryption</h3>
+            <p data-i18n="f5Desc">Automatic key exchange and military-grade AEAD encryption with a 4-digit verification PIN protect your family from eavesdropping on shared Wi-Fi networks.</p>
           </div>
 
           <div class="card">
-            <div class="card-icon">💻</div>
-            <h3>Desktop Web Prijemnik</h3>
-            <p>Ugrađeni web server omogućava praćenje bebe u realnom vremenu sa bilo kog računara, laptopa ili Smart TV-a otvaranjem lokalne adrese u browseru.</p>
+            <div class="card-icon">🌙</div>
+            <h3 data-i18n="f6Title">Smart Nightstand & Lock Screen</h3>
+            <p data-i18n="f6Desc">When sound is detected overnight, the parent phone automatically wakes up and displays live video directly over the lock screen without unlocking.</p>
           </div>
         </div>
       </div>
@@ -434,27 +491,27 @@
     <section class="setup-steps">
       <div class="container">
         <div class="section-header">
-          <h2>Kako se Koristi u 3 Koraka</h2>
-          <p>Bez komplikovanih podešavanja — radi odmah iz kutije.</p>
+          <h2 data-i18n="stepsHeading">How It Works in 3 Steps</h2>
+          <p data-i18n="stepsSubtitle">No complex configuration — works straight out of the box.</p>
         </div>
 
         <div class="steps-grid">
           <div class="step-card">
             <div class="step-num">1</div>
-            <h3>Instalirajte APK</h3>
-            <p>Preuzmite i instalirajte <code>BabyMonitor.apk</code> na oba Android telefona.</p>
+            <h3 data-i18n="s1Title">Install APK</h3>
+            <p data-i18n="s1Desc">Download and install <code>BabyMonitor.apk</code> on both Android phones.</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">2</div>
-            <h3>Povežite na Wi-Fi</h3>
-            <p>Povežite telefone na istu Wi-Fi mrežu (ili uključite Hotspot na jednom bez trošenja interneta).</p>
+            <h3 data-i18n="s2Title">Connect to Wi-Fi</h3>
+            <p data-i18n="s2Desc">Connect both phones to the same Wi-Fi router (or turn on Hotspot on one phone without mobile data).</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">3</div>
-            <h3>Izaberite Uloge</h3>
-            <p>Na jednom telefonu pritisnite <strong>👶 Beba</strong>, a na drugom <strong>👪 Roditelj</strong>. Uparivanje je trenutno!</p>
+            <h3 data-i18n="s3Title">Choose Roles</h3>
+            <p data-i18n="s3Desc">On one device tap <strong>👶 Baby</strong>, and on the other tap <strong>👪 Parent</strong>. Pairing is instant!</p>
           </div>
         </div>
       </div>
@@ -464,12 +521,131 @@
   <footer>
     <div class="container">
       <p>
-        Vule Baby Monitor — Otvoreno za roditelje. 
+        <span data-i18n="footerText">Vule Baby Monitor — Built with care for parents worldwide.</span>
         <br>
-        <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest">Preuzmi najnoviji APK sa GitHub-a</a>
+        <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest" data-i18n="footerLink">Download latest APK from GitHub Releases</a>
       </p>
     </div>
   </footer>
 
+  <script>
+    const translations = {
+      en: {
+        title: "Vule Baby Monitor — 100% Local Wi-Fi Baby Alarm",
+        badgeZeroCloud: "🔒 100% Zero-Cloud",
+        heroTag: "✨ Production Version v1.2 is Ready",
+        heroTitle: "Turn your phones into a <br><span class=\"gradient-text\">secure baby monitor</span>",
+        heroSubtitle: "Local Wi-Fi transmission with zero cloud, zero accounts, zero internet, and zero subscriptions. Real-time audio, video on demand, smart nightstand wake-up, and military-grade encryption.",
+        btnPrimary: "<span>⬇️</span> Download BabyMonitor.apk (~16 MB)",
+        btnSecondary: "<span>📦</span> All Releases & Architectures",
+        metaAndroid: "✓ Android 6.0 to Android 15",
+        metaData: "✓ 0 bytes mobile data",
+        metaPrivacy: "✓ 100% Private & Local",
+        featuresHeading: "Designed for Peaceful Nights",
+        featuresSubtitle: "All functionality operates strictly within your local home network.",
+        f1Title: "100% Zero-Cloud Privacy",
+        f1Desc: "No cloud servers, no account logins, and no telemetry sent to the internet. Everything stays strictly locked inside your home Wi-Fi network.",
+        f2Title: "Maximum Battery Life",
+        f2Desc: "When baby is sleeping quietly (Silence-on-Wire), the phone stops audio streaming and keeps the processor in deep sleep (Deep Sleep C-state). Streams only on sound.",
+        f3Title: "VOX Sound Detection",
+        f3Desc: "Instant audio streaming upon baby vocalization with calibrated thresholds and a smart 10s hangover extension, eliminating false alerts from white noise.",
+        f4Title: "Video on Demand & PiP",
+        f4Desc: "Native Camera2 hardware JPEG streaming without phone overheating, lens rotation, remote night light, and floating Picture-in-Picture window with auto-reconnect.",
+        f5Title: "ECDH & ChaCha20 Encryption",
+        f5Desc: "Automatic key exchange and military-grade AEAD encryption with a 4-digit verification PIN protect your family from eavesdropping on shared Wi-Fi networks.",
+        f6Title: "Smart Nightstand & Lock Screen",
+        f6Desc: "When sound is detected overnight, the parent phone automatically wakes up and displays live video directly over the lock screen without unlocking.",
+        stepsHeading: "How It Works in 3 Steps",
+        stepsSubtitle: "No complex configuration — works straight out of the box.",
+        s1Title: "Install APK",
+        s1Desc: "Download and install <code>BabyMonitor.apk</code> on both Android phones.",
+        s2Title: "Connect to Wi-Fi",
+        s2Desc: "Connect both phones to the same Wi-Fi router (or turn on Hotspot on one phone without mobile data).",
+        s3Title: "Choose Roles",
+        s3Desc: "On one device tap <strong>👶 Baby</strong>, and on the other tap <strong>👪 Parent</strong>. Pairing is instant!",
+        footerText: "Vule Baby Monitor — Built with care for parents worldwide.",
+        footerLink: "Download latest APK from GitHub Releases"
+      },
+      sr: {
+        title: "Vule Baby Monitor — 100% Lokalni Wi-Fi Bebi Alarm",
+        badgeZeroCloud: "🔒 100% Zero-Cloud",
+        heroTag: "✨ Nova Verzija v1.2 je spremna",
+        heroTitle: "Pretvorite telefone u <br><span class=\"gradient-text\">bezbedan bebi alarm</span>",
+        heroSubtitle: "Lokalni Wi-Fi prenos bez oblaka, bez naloga, bez interneta i bez pretplate. Zvuk, video na zahtev, pametni noćni dnevnik i vojna enkripcija.",
+        btnPrimary: "<span>⬇️</span> Preuzmi BabyMonitor.apk (~16 MB)",
+        btnSecondary: "<span>📦</span> Sva Izdanja i Arhitekture",
+        metaAndroid: "✓ Android 6.0 do Android 15",
+        metaData: "✓ 0 bajtova mobilnog interneta",
+        metaPrivacy: "✓ Potpuna privatnost",
+        featuresHeading: "Napravljeno za Miran San Roditelja",
+        featuresSubtitle: "Sve funkcije rade isključivo u okviru vaše lokalne kućne mreže.",
+        f1Title: "100% Zero-Cloud & Privatnost",
+        f1Desc: "Nema servera u oblaku, registracije naloga niti slanja podataka na internet. Sve ostaje zaključano unutar vaše lokalne Wi-Fi mreže.",
+        f2Title: "Maksimalna Štednja Baterije",
+        f2Desc: "Dok beba miruje (Silence-on-Wire), telefon ne prenosi zvuk i drži procesor u dubokom snu (Deep Sleep C-state). Prenos se pali samo na zvuk.",
+        f3Title: "VOX Detekcija Zvuka",
+        f3Desc: "Automatsko oglašavanje uz kalibrisani prag buke i Hangover produženje garantuje da čujete bebu čim se probudi, bez lažnih uzbuna.",
+        f4Title: "Video na Zahtev & PiP",
+        f4Desc: "Hardverski Camera2 JPEG prenos bez zagrevanja telefona, rotacija sočiva, daljinsko noćno svetlo i plutajući Picture-in-Picture prozorčić.",
+        f5Title: "ECDH & ChaCha20 Enkripcija",
+        f5Desc: "Automatska razmena ključeva i vojna AEAD enkripcija uz 4-cifreni verifikacioni PIN štite vaš signal od prisluškivanja u zgradama i hotelima.",
+        f6Title: "Smart Nightstand & Zaključan Ekran",
+        f6Desc: "Kada se noću detektuje zvuk, roditeljski telefon se automatski budi i prikazuje live video direktno preko zaključanog ekrana bez otključavanja.",
+        stepsHeading: "Kako se Koristi u 3 Koraka",
+        stepsSubtitle: "Bez komplikovanih podešavanja — radi odmah iz kutije.",
+        s1Title: "Instalirajte APK",
+        s1Desc: "Preuzmite i instalirajte <code>BabyMonitor.apk</code> na oba Android telefona.",
+        s2Title: "Povežite na Wi-Fi",
+        s2Desc: "Povežite telefone na istu Wi-Fi mrežu (ili uključite Hotspot na jednom bez trošenja interneta).",
+        s3Title: "Izaberite Uloge",
+        s3Desc: "Na jednom telefonu pritisnite <strong>👶 Beba</strong>, a na drugom <strong>👪 Roditelj</strong>. Uparivanje je trenutno!",
+        footerText: "Vule Baby Monitor — Otvoreno za roditelje.",
+        footerLink: "Preuzmi najnoviji APK sa GitHub-a"
+      }
+    };
+
+    function applyLanguage(lang) {
+      if (!translations[lang]) lang = 'en';
+      document.documentElement.lang = lang;
+      document.title = translations[lang].title;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      try {
+        localStorage.setItem('vule_bm_lang', lang);
+      } catch (e) {}
+    }
+
+    // Determine initial language: saved > browser > default 'en'
+    let currentLang = 'en';
+    try {
+      const saved = localStorage.getItem('vule_bm_lang');
+      if (saved && (saved === 'en' || saved === 'sr')) {
+        currentLang = saved;
+      } else {
+        const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (nav.startsWith('sr') || nav.startsWith('hr') || nav.startsWith('bs')) {
+          currentLang = 'sr';
+        }
+      }
+    } catch (e) {}
+
+    applyLanguage(currentLang);
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        applyLanguage(btn.getAttribute('data-lang'));
+      });
+    });
+  </script>
 </body>
 </html>
