@@ -138,7 +138,7 @@
 
     /* Hero Section */
     .hero {
-      padding: 90px 0 60px;
+      padding: 80px 0 60px;
       text-align: center;
     }
 
@@ -156,11 +156,11 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .hero p {
+    .hero p.hero-subtitle {
       font-size: 1.2rem;
       color: var(--text-muted);
       max-width: 680px;
-      margin: 0 auto 40px;
+      margin: 0 auto 36px;
     }
 
     .cta-group {
@@ -169,7 +169,7 @@
       justify-content: center;
       align-items: center;
       gap: 16px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     .btn {
@@ -259,12 +259,54 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      margin-bottom: 30px;
     }
 
     .release-meta span {
       display: inline-flex;
       align-items: center;
       gap: 6px;
+    }
+
+    /* Pricing & Transparency Card */
+    .pricing-card {
+      margin: 0 auto;
+      max-width: 760px;
+      background: rgba(22, 30, 46, 0.65);
+      border: 1px solid rgba(0, 229, 255, 0.22);
+      border-radius: 18px;
+      padding: 22px 28px;
+      backdrop-filter: blur(16px);
+      text-align: left;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .pricing-icon {
+      font-size: 26px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pricing-content h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--primary);
+    }
+
+    .pricing-content p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .pricing-content strong {
+      color: var(--text-main);
     }
 
     /* Features Grid */
@@ -424,6 +466,9 @@
       .btn, .btn-store {
         width: 100%;
       }
+      .pricing-card {
+        padding: 18px 20px;
+      }
     }
   </style>
 </head>
@@ -455,7 +500,7 @@
           Turn your phones into a <br>
           <span class="gradient-text">secure baby monitor</span>
         </h1>
-        <p data-i18n="heroSubtitle">
+        <p class="hero-subtitle" data-i18n="heroSubtitle">
           Local Wi-Fi transmission with zero cloud, zero accounts, zero internet, and zero subscriptions. 
           Real-time audio, video on demand, smart nightstand wake-up, and military-grade encryption.
         </p>
@@ -482,6 +527,17 @@
           <span data-i18n="metaAndroid">✓ Android 6.0 to Android 15</span>
           <span data-i18n="metaData">✓ 0 bytes mobile data</span>
           <span data-i18n="metaPrivacy">✓ 100% Private & Local</span>
+        </div>
+
+        <!-- PRICING & TRANSPARENCY CARD -->
+        <div class="pricing-card">
+          <div class="pricing-icon">💝</div>
+          <div class="pricing-content">
+            <h3 data-i18n="pricingTitle">100% Free & Open • Google Play Support</h3>
+            <p data-i18n="pricingDesc">
+              The full app is <strong>100% free</strong> and always available directly on GitHub. A paid version will also be available on Google Play for automatic updates and as a way to support my development. <strong>Both versions share the exact same code and build hash</strong> — identical features, zero ads, and zero subscriptions.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -591,6 +647,8 @@
         metaAndroid: "✓ Android 6.0 to Android 15",
         metaData: "✓ 0 bytes mobile data",
         metaPrivacy: "✓ 100% Private & Local",
+        pricingTitle: "100% Free & Open • Google Play Support",
+        pricingDesc: "The full app is <strong>100% free</strong> and always available directly on GitHub. A paid version will also be available on Google Play for automatic updates and as a way to support my development. <strong>Both versions share the exact same code and build hash</strong> — identical features, zero ads, and zero subscriptions.",
         featuresHeading: "Designed for Peaceful Nights",
         featuresSubtitle: "All functionality operates strictly within your local home network.",
         f1Title: "100% Zero-Cloud Privacy",
@@ -628,6 +686,8 @@
         metaAndroid: "✓ Android 6.0 do Android 15",
         metaData: "✓ 0 bajtova mobilnog interneta",
         metaPrivacy: "✓ Potpuna privatnost",
+        pricingTitle: "100% Besplatno & Otvoreno • Google Play Podrška",
+        pricingDesc: "Kompletna aplikacija je <strong>100% besplatna</strong> i uvek dostupna za preuzimanje ovde na GitHub-u. Za roditelje koji žele automatska ažuriranja kroz prodavnicu i žele da podrže moj rad, biće ponuđena i verzija na Google Play-u. <strong>Obe verzije dele potpuno isti kôd i build heš</strong> — identične funkcije, bez reklama i bez pretplate.",
         featuresHeading: "Napravljeno za Miran San Roditelja",
         featuresSubtitle: "Sve funkcije rade isključivo u okviru vaše lokalne kućne mreže.",
         f1Title: "100% Zero-Cloud & Privatnost",
