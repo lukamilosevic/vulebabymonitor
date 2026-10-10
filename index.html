@@ -138,22 +138,8 @@
 
     /* Hero Section */
     .hero {
-      padding: 80px 0 60px;
+      padding: 90px 0 60px;
       text-align: center;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      background: rgba(0, 229, 255, 0.1);
-      border: 1px solid rgba(0, 229, 255, 0.25);
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 24px;
     }
 
     .hero h1 {
@@ -181,6 +167,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
       gap: 16px;
       margin-bottom: 40px;
     }
@@ -190,7 +177,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 16px 32px;
+      padding: 16px 30px;
       border-radius: 14px;
       font-weight: 700;
       font-size: 1.05rem;
@@ -222,6 +209,47 @@
       background: rgba(255, 255, 255, 0.1);
       border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
+    }
+
+    /* Google Play button styling */
+    .btn-store {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      border-radius: 14px;
+    }
+
+    .btn-store svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+
+    .store-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+    }
+
+    .store-sub {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+    }
+
+    .store-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-main);
     }
 
     .release-meta {
@@ -352,18 +380,30 @@
     /* Footer */
     footer {
       border-top: 1px solid var(--card-border);
-      padding: 40px 0;
+      padding: 50px 0 40px;
       text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
     }
 
-    footer a {
+    .dedication {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .footer-links {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links a {
       color: var(--primary);
       text-decoration: none;
+      margin: 0 8px;
     }
 
-    footer a:hover {
+    .footer-links a:hover {
       text-decoration: underline;
     }
 
@@ -379,8 +419,9 @@
       }
       .cta-group {
         flex-direction: column;
+        width: 100%;
       }
-      .btn {
+      .btn, .btn-store {
         width: 100%;
       }
     }
@@ -410,9 +451,6 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container">
-        <div class="hero-tag">
-          <span data-i18n="heroTag">✨ Production Version v1.2 is Ready</span>
-        </div>
         <h1 data-i18n="heroTitle">
           Turn your phones into a <br>
           <span class="gradient-text">secure baby monitor</span>
@@ -424,11 +462,20 @@
 
         <div class="cta-group">
           <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest/download/BabyMonitor.apk" class="btn btn-primary" data-i18n="btnPrimary">
-            <span>⬇️</span> Download BabyMonitor.apk (~16 MB)
+            <span>⬇️</span> Download BabyMonitor.apk
           </a>
           <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest" class="btn btn-secondary" data-i18n="btnSecondary">
             <span>📦</span> All Releases & Architectures
           </a>
+          <div class="btn-store">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.609 1.814L13.793 12 3.61 22.186c-.347-.367-.547-.905-.547-1.547V3.361c0-.642.2-1.18.546-1.547zm11.25 11.25l2.483-2.483-11.45-6.61 8.967 9.093zm0 1.872l-8.967 9.093 11.45-6.61-2.483-2.483zm1.326-1.326l3.435-1.983c.725-.418.725-1.101 0-1.52l-3.435-1.983-2.146 2.146 2.146 2.146z"/>
+            </svg>
+            <div class="store-text">
+              <span class="store-sub" data-i18n="playStoreSub">Coming Soon</span>
+              <span class="store-title">Google Play</span>
+            </div>
+          </div>
         </div>
 
         <div class="release-meta">
@@ -451,37 +498,37 @@
           <div class="card">
             <div class="card-icon">🛡️</div>
             <h3 data-i18n="f1Title">100% Zero-Cloud Privacy</h3>
-            <p data-i18n="f1Desc">No cloud servers, no account logins, and no telemetry sent to the internet. Everything stays strictly locked inside your home Wi-Fi network.</p>
+            <p data-i18n="f1Desc">No cloud servers, no account logins, and no telemetry sent to the internet. Everything stays strictly locked inside your home Wi-Fi network with 0 mobile data usage.</p>
           </div>
 
           <div class="card">
             <div class="card-icon">⚡</div>
-            <h3 data-i18n="f2Title">Maximum Battery Life</h3>
-            <p data-i18n="f2Desc">When baby is sleeping quietly (Silence-on-Wire), the phone stops audio streaming and keeps the processor in deep sleep (Deep Sleep C-state). Streams only on sound.</p>
+            <h3 data-i18n="f2Title">Maximum Battery Savings</h3>
+            <p data-i18n="f2Desc">When baby is quiet (Silence-on-Wire), audio stream and hardware DAC shut down, keeping the phone processor in Deep Sleep (C-state). Streams only on real sound.</p>
           </div>
 
           <div class="card">
             <div class="card-icon">🎙️</div>
-            <h3 data-i18n="f3Title">VOX Sound Detection</h3>
-            <p data-i18n="f3Desc">Instant audio streaming upon baby vocalization with calibrated thresholds and a smart 10s hangover extension, eliminating false alerts from white noise.</p>
+            <h3 data-i18n="f3Title">VOX Audio & Smart 15s Hangover</h3>
+            <p data-i18n="f3Desc">Linear 16kHz PCM audio stream activates instantaneously on sound with calibrated VOX thresholds and a smart 15s hangover that auto-refreshes on baby movement.</p>
           </div>
 
           <div class="card">
             <div class="card-icon">📹</div>
             <h3 data-i18n="f4Title">Video on Demand & PiP</h3>
-            <p data-i18n="f4Desc">Native Camera2 hardware JPEG streaming without phone overheating, lens rotation, remote night light, and floating Picture-in-Picture window with auto-reconnect.</p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🔒</div>
-            <h3 data-i18n="f5Title">ECDH & ChaCha20 Encryption</h3>
-            <p data-i18n="f5Desc">Automatic key exchange and military-grade AEAD encryption with a 4-digit verification PIN protect your family from eavesdropping on shared Wi-Fi networks.</p>
+            <p data-i18n="f4Desc">Native Camera2 JPEG stream (~5 fps for zero heating), remote gentle night light, and floating Picture-in-Picture window that automatically reconnects on unlock.</p>
           </div>
 
           <div class="card">
             <div class="card-icon">🌙</div>
-            <h3 data-i18n="f6Title">Smart Nightstand & Lock Screen</h3>
-            <p data-i18n="f6Desc">When sound is detected overnight, the parent phone automatically wakes up and displays live video directly over the lock screen without unlocking.</p>
+            <h3 data-i18n="f5Title">Smart Nightstand (Lock Screen Video)</h3>
+            <p data-i18n="f5Desc">When sound is detected overnight, the parent phone automatically turns on and displays live video directly over the lock screen without unlocking.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🔒</div>
+            <h3 data-i18n="f6Title">Military Encryption & FHD Photo</h3>
+            <p data-i18n="f6Desc">ChaCha20-Poly1305 AEAD + ECDH with 4-digit zero-typing PIN, two-way Talk-Back with echo suppression, and true sensor-resolution photos with NACK recovery.</p>
           </div>
         </div>
       </div>
@@ -520,11 +567,14 @@
 
   <footer>
     <div class="container">
-      <p>
-        <span data-i18n="footerText">Vule Baby Monitor — Built with care for parents worldwide.</span>
-        <br>
-        <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest" data-i18n="footerLink">Download latest APK from GitHub Releases</a>
+      <p class="dedication" data-i18n="dedication">
+        Za Vukotu, od ćaleta Luke ❤️
       </p>
+      <div class="footer-links">
+        <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest" data-i18n="footerDownload">Download BabyMonitor.apk</a>
+        •
+        <a href="https://github.com/lukamilosevic/vulebabymonitor" data-i18n="footerSource">GitHub Repository</a>
+      </div>
     </div>
   </footer>
 
@@ -533,28 +583,28 @@
       en: {
         title: "Vule Baby Monitor — 100% Local Wi-Fi Baby Alarm",
         badgeZeroCloud: "🔒 100% Zero-Cloud",
-        heroTag: "✨ Production Version v1.2 is Ready",
         heroTitle: "Turn your phones into a <br><span class=\"gradient-text\">secure baby monitor</span>",
         heroSubtitle: "Local Wi-Fi transmission with zero cloud, zero accounts, zero internet, and zero subscriptions. Real-time audio, video on demand, smart nightstand wake-up, and military-grade encryption.",
-        btnPrimary: "<span>⬇️</span> Download BabyMonitor.apk (~16 MB)",
+        btnPrimary: "<span>⬇️</span> Download BabyMonitor.apk",
         btnSecondary: "<span>📦</span> All Releases & Architectures",
+        playStoreSub: "Coming Soon",
         metaAndroid: "✓ Android 6.0 to Android 15",
         metaData: "✓ 0 bytes mobile data",
         metaPrivacy: "✓ 100% Private & Local",
         featuresHeading: "Designed for Peaceful Nights",
         featuresSubtitle: "All functionality operates strictly within your local home network.",
         f1Title: "100% Zero-Cloud Privacy",
-        f1Desc: "No cloud servers, no account logins, and no telemetry sent to the internet. Everything stays strictly locked inside your home Wi-Fi network.",
-        f2Title: "Maximum Battery Life",
-        f2Desc: "When baby is sleeping quietly (Silence-on-Wire), the phone stops audio streaming and keeps the processor in deep sleep (Deep Sleep C-state). Streams only on sound.",
-        f3Title: "VOX Sound Detection",
-        f3Desc: "Instant audio streaming upon baby vocalization with calibrated thresholds and a smart 10s hangover extension, eliminating false alerts from white noise.",
+        f1Desc: "No cloud servers, no account logins, and no telemetry sent to the internet. Everything stays strictly locked inside your home Wi-Fi network with 0 mobile data usage.",
+        f2Title: "Maximum Battery Savings",
+        f2Desc: "When baby is quiet (Silence-on-Wire), audio stream and hardware DAC shut down, keeping the phone processor in Deep Sleep (C-state). Streams only on real sound.",
+        f3Title: "VOX Audio & Smart 15s Hangover",
+        f3Desc: "Linear 16kHz PCM audio stream activates instantaneously on sound with calibrated VOX thresholds and a smart 15s hangover that auto-refreshes on baby movement.",
         f4Title: "Video on Demand & PiP",
-        f4Desc: "Native Camera2 hardware JPEG streaming without phone overheating, lens rotation, remote night light, and floating Picture-in-Picture window with auto-reconnect.",
-        f5Title: "ECDH & ChaCha20 Encryption",
-        f5Desc: "Automatic key exchange and military-grade AEAD encryption with a 4-digit verification PIN protect your family from eavesdropping on shared Wi-Fi networks.",
-        f6Title: "Smart Nightstand & Lock Screen",
-        f6Desc: "When sound is detected overnight, the parent phone automatically wakes up and displays live video directly over the lock screen without unlocking.",
+        f4Desc: "Native Camera2 JPEG stream (~5 fps for zero heating), remote gentle night light, and floating Picture-in-Picture window that automatically reconnects on unlock.",
+        f5Title: "Smart Nightstand (Lock Screen Video)",
+        f5Desc: "When sound is detected overnight, the parent phone automatically turns on and displays live video directly over the lock screen without unlocking.",
+        f6Title: "Military Encryption & FHD Photo",
+        f6Desc: "ChaCha20-Poly1305 AEAD + ECDH with 4-digit zero-typing PIN, two-way Talk-Back with echo suppression, and true sensor-resolution photos with NACK recovery.",
         stepsHeading: "How It Works in 3 Steps",
         stepsSubtitle: "No complex configuration — works straight out of the box.",
         s1Title: "Install APK",
@@ -563,34 +613,35 @@
         s2Desc: "Connect both phones to the same Wi-Fi router (or turn on Hotspot on one phone without mobile data).",
         s3Title: "Choose Roles",
         s3Desc: "On one device tap <strong>👶 Baby</strong>, and on the other tap <strong>👪 Parent</strong>. Pairing is instant!",
-        footerText: "Vule Baby Monitor — Built with care for parents worldwide.",
-        footerLink: "Download latest APK from GitHub Releases"
+        dedication: "For Vukota, crafted with love by dad Luka ❤️",
+        footerDownload: "Download BabyMonitor.apk",
+        footerSource: "GitHub Repository"
       },
       sr: {
         title: "Vule Baby Monitor — 100% Lokalni Wi-Fi Bebi Alarm",
         badgeZeroCloud: "🔒 100% Zero-Cloud",
-        heroTag: "✨ Nova Verzija v1.2 je spremna",
         heroTitle: "Pretvorite telefone u <br><span class=\"gradient-text\">bezbedan bebi alarm</span>",
         heroSubtitle: "Lokalni Wi-Fi prenos bez oblaka, bez naloga, bez interneta i bez pretplate. Zvuk, video na zahtev, pametni noćni dnevnik i vojna enkripcija.",
-        btnPrimary: "<span>⬇️</span> Preuzmi BabyMonitor.apk (~16 MB)",
+        btnPrimary: "<span>⬇️</span> Preuzmi BabyMonitor.apk",
         btnSecondary: "<span>📦</span> Sva Izdanja i Arhitekture",
+        playStoreSub: "Stiže uskoro",
         metaAndroid: "✓ Android 6.0 do Android 15",
         metaData: "✓ 0 bajtova mobilnog interneta",
         metaPrivacy: "✓ Potpuna privatnost",
         featuresHeading: "Napravljeno za Miran San Roditelja",
         featuresSubtitle: "Sve funkcije rade isključivo u okviru vaše lokalne kućne mreže.",
         f1Title: "100% Zero-Cloud & Privatnost",
-        f1Desc: "Nema servera u oblaku, registracije naloga niti slanja podataka na internet. Sve ostaje zaključano unutar vaše lokalne Wi-Fi mreže.",
+        f1Desc: "Nema servera u oblaku, registracije naloga niti slanja podataka na internet. Sve ostaje zaključano unutar vaše lokalne Wi-Fi mreže uz 0 bajtova mobilnog interneta.",
         f2Title: "Maksimalna Štednja Baterije",
-        f2Desc: "Dok beba miruje (Silence-on-Wire), telefon ne prenosi zvuk i drži procesor u dubokom snu (Deep Sleep C-state). Prenos se pali samo na zvuk.",
-        f3Title: "VOX Detekcija Zvuka",
-        f3Desc: "Automatsko oglašavanje uz kalibrisani prag buke i Hangover produženje garantuje da čujete bebu čim se probudi, bez lažnih uzbuna.",
+        f2Desc: "Dok beba miruje (Silence-on-Wire), prenos zvuka i audio DAC se gase, držeći procesor u dubokom snu (Deep Sleep C-state). Prenos se pali samo na stvaran zvuk.",
+        f3Title: "VOX Detekcija & Pametni 15s Hangover",
+        f3Desc: "Linearni 16kHz PCM audio pali se istog trenutka kada beba proizvede zvuk, uz kalibrisani VOX prag i pametni fiksni hangover od 15s koji se automatski produžava.",
         f4Title: "Video na Zahtev & PiP",
-        f4Desc: "Hardverski Camera2 JPEG prenos bez zagrevanja telefona, rotacija sočiva, daljinsko noćno svetlo i plutajući Picture-in-Picture prozorčić.",
-        f5Title: "ECDH & ChaCha20 Enkripcija",
-        f5Desc: "Automatska razmena ključeva i vojna AEAD enkripcija uz 4-cifreni verifikacioni PIN štite vaš signal od prisluškivanja u zgradama i hotelima.",
-        f6Title: "Smart Nightstand & Zaključan Ekran",
-        f6Desc: "Kada se noću detektuje zvuk, roditeljski telefon se automatski budi i prikazuje live video direktno preko zaključanog ekrana bez otključavanja.",
+        f4Desc: "Native Camera2 JPEG strim bez zagrevanja telefona, daljinsko noćno svetlo (blic) i lebdeći Picture-in-Picture prozorčić koji se sam obnavlja na otključavanje.",
+        f5Title: "Smart Nightstand (Zaključan Ekran)",
+        f5Desc: "Kada se noću detektuje zvuk, roditeljski telefon se automatski sam pali i prikazuje live video direktno preko zaključanog ekrana bez otključavanja.",
+        f6Title: "Vojna Enkripcija & FHD Fotografija",
+        f6Desc: "ChaCha20-Poly1305 AEAD + ECDH sa 4-cifrenim PIN-om bez kucanja, dvosmerni Talk-Back sa supresijom eha i prave hardverske fotografije visoke rezolucije.",
         stepsHeading: "Kako se Koristi u 3 Koraka",
         stepsSubtitle: "Bez komplikovanih podešavanja — radi odmah iz kutije.",
         s1Title: "Instalirajte APK",
@@ -599,8 +650,9 @@
         s2Desc: "Povežite telefone na istu Wi-Fi mrežu (ili uključite Hotspot na jednom bez trošenja interneta).",
         s3Title: "Izaberite Uloge",
         s3Desc: "Na jednom telefonu pritisnite <strong>👶 Beba</strong>, a na drugom <strong>👪 Roditelj</strong>. Uparivanje je trenutno!",
-        footerText: "Vule Baby Monitor — Otvoreno za roditelje.",
-        footerLink: "Preuzmi najnoviji APK sa GitHub-a"
+        dedication: "Za Vukotu, od ćaleta Luke ❤️",
+        footerDownload: "Preuzmi BabyMonitor.apk",
+        footerSource: "GitHub Repozitorijum"
       }
     };
 
@@ -625,7 +677,6 @@
       } catch (e) {}
     }
 
-    // Determine initial language: saved > browser > default 'en'
     let currentLang = 'en';
     try {
       const saved = localStorage.getItem('vule_bm_lang');
