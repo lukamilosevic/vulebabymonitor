@@ -20,6 +20,7 @@
       --text-main: #F8FAFC;
       --text-muted: #94A3B8;
       --success: #10B981;
+      --warning: #F59E0B;
     }
 
     * {
@@ -41,7 +42,7 @@
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1140px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -50,6 +51,11 @@
     header {
       padding: 20px 0;
       border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(16px);
+      z-index: 100;
     }
 
     .header-inner {
@@ -88,15 +94,34 @@
       gap: 12px;
     }
 
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-right: 8px;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
     .badge-zero-cloud {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 14px;
       background: rgba(16, 185, 129, 0.12);
       border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 14px;
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: var(--success);
       white-space: nowrap;
@@ -138,12 +163,12 @@
 
     /* Hero Section */
     .hero {
-      padding: 80px 0 60px;
+      padding: 70px 0 60px;
       text-align: center;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -1.5px;
@@ -157,7 +182,7 @@
     }
 
     .hero p.hero-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.18rem;
       color: var(--text-muted);
       max-width: 680px;
       margin: 0 auto 36px;
@@ -169,7 +194,7 @@
       justify-content: center;
       align-items: center;
       gap: 16px;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .btn {
@@ -259,7 +284,7 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .release-meta span {
@@ -270,12 +295,12 @@
 
     /* Pricing & Transparency Card */
     .pricing-card {
-      margin: 0 auto;
+      margin: 0 auto 50px;
       max-width: 760px;
       background: rgba(22, 30, 46, 0.65);
       border: 1px solid rgba(0, 229, 255, 0.22);
       border-radius: 18px;
-      padding: 22px 28px;
+      padding: 20px 26px;
       backdrop-filter: blur(16px);
       text-align: left;
       display: flex;
@@ -309,18 +334,256 @@
       color: var(--text-main);
     }
 
-    /* Features Grid */
-    .features {
-      padding: 60px 0;
+    /* HERO DUAL-DEVICE SHOWCASE */
+    .hero-showcase {
+      margin-top: 40px;
+      position: relative;
     }
 
+    .showcase-badge-wrap {
+      margin-bottom: 28px;
+    }
+
+    .showcase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid rgba(0, 229, 255, 0.28);
+      color: var(--primary);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+    }
+
+    .hero-devices {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      position: relative;
+      perspective: 1200px;
+    }
+
+    .hero-device {
+      flex: 0 0 270px;
+      max-width: 270px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .hero-device:hover {
+      transform: translateY(-8px) scale(1.03);
+    }
+
+    .hero-device-baby {
+      transform: rotateY(4deg) rotateZ(-1deg);
+    }
+
+    .hero-device-parent {
+      transform: rotateY(-4deg) rotateZ(1deg);
+    }
+
+    .device-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      background: rgba(22, 30, 46, 0.9);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .device-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .dot-baby {
+      background: #00E5FF;
+      box-shadow: 0 0 8px #00E5FF;
+    }
+
+    .dot-parent {
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+    }
+
+    .device-frame {
+      position: relative;
+      width: 100%;
+      border-radius: 36px;
+      background: #0B111E;
+      padding: 9px;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8),
+                  0 0 35px rgba(0, 229, 255, 0.15),
+                  inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .device-frame img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1220 / 2712;
+      border-radius: 28px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .device-notch {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 6px;
+      background: #1e293b;
+      border-radius: 999px;
+      z-index: 5;
+    }
+
+    .device-overlay-tag {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(9, 13, 22, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tag-quiet {
+      color: #10B981;
+      border-color: rgba(16, 185, 129, 0.35);
+    }
+
+    .tag-battery {
+      color: #00E5FF;
+      border-color: rgba(0, 229, 255, 0.35);
+    }
+
+    /* Center Connection Bridge */
+    .hero-conn-bridge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 190px;
+      z-index: 2;
+    }
+
+    .conn-badge {
+      background: rgba(22, 30, 46, 0.85);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      padding: 12px 16px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 229, 255, 0.2);
+      backdrop-filter: blur(12px);
+    }
+
+    .conn-icon {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .conn-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+      display: block;
+    }
+
+    .conn-text strong {
+      color: var(--primary);
+      font-size: 0.82rem;
+    }
+
+    .conn-pulse-line {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .conn-pulse-dot {
+      position: absolute;
+      top: -3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+      animation: pulseMove 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .conn-pulse-dot.reverse {
+      animation: pulseMoveReverse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    @keyframes pulseMove {
+      0% { left: 0%; opacity: 0; }
+      50% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
+    }
+
+    @keyframes pulseMoveReverse {
+      0% { right: 0%; opacity: 0; }
+      50% { opacity: 1; }
+      100% { right: 100%; opacity: 0; }
+    }
+
+    /* Section Header Common */
     .section-header {
       text-align: center;
       margin-bottom: 48px;
     }
 
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
     .section-header h2 {
-      font-size: 2.2rem;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
       font-weight: 800;
       letter-spacing: -0.5px;
       margin-bottom: 12px;
@@ -329,6 +592,13 @@
     .section-header p {
       color: var(--text-muted);
       font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Features Grid */
+    .features {
+      padding: 80px 0 60px;
     }
 
     .grid {
@@ -343,12 +613,13 @@
       border-radius: 20px;
       padding: 32px;
       backdrop-filter: blur(16px);
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
       border-color: rgba(0, 229, 255, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     }
 
     .card-icon {
@@ -376,6 +647,379 @@
       line-height: 1.6;
     }
 
+    /* SCREENSHOTS SHOWCASE SECTION */
+    .gallery-section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 9px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--primary), #00B4D8);
+      color: #05101E;
+      border-color: transparent;
+      box-shadow: 0 0 16px var(--primary-glow);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .gallery-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 229, 255, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 229, 255, 0.18);
+    }
+
+    .phone-mockup {
+      position: relative;
+      width: 220px;
+      max-width: 100%;
+      border-radius: 32px;
+      background: #0B111E;
+      padding: 8px;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7),
+                  0 0 20px rgba(0, 229, 255, 0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-card:hover .phone-mockup {
+      transform: scale(1.03);
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 5px;
+      background: #1e293b;
+      border-radius: 999px;
+      z-index: 5;
+    }
+
+    .phone-screen {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 1220 / 2712;
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-card:hover .phone-screen img {
+      transform: scale(1.04);
+    }
+
+    .phone-zoom-hint {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(9, 13, 22, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      opacity: 0;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      backdrop-filter: blur(8px);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .phone-zoom-hint svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .gallery-card:hover .phone-zoom-hint {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-2px);
+    }
+
+    .card-meta {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card-pill {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .pill-parent {
+      background: rgba(16, 185, 129, 0.14);
+      color: #10B981;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .pill-baby {
+      background: rgba(0, 229, 255, 0.14);
+      color: #00E5FF;
+      border: 1px solid rgba(0, 229, 255, 0.35);
+    }
+
+    .pill-settings {
+      background: rgba(124, 77, 255, 0.16);
+      color: #A78BFA;
+      border: 1px solid rgba(124, 77, 255, 0.35);
+    }
+
+    .pill-setup {
+      background: rgba(245, 158, 11, 0.14);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    .card-meta h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .card-meta p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* LIGHTBOX MODAL */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(5, 8, 15, 0.92);
+      backdrop-filter: blur(20px);
+    }
+
+    .lightbox-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 90vw;
+      max-height: 92vh;
+      animation: modalScale 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    @keyframes modalScale {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -46px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.08);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(22, 30, 46, 0.85);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-nav:hover {
+      background: var(--primary);
+      color: #05101E;
+      border-color: transparent;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .lightbox-prev {
+      left: -64px;
+    }
+
+    .lightbox-next {
+      right: -64px;
+    }
+
+    .lightbox-phone-frame {
+      position: relative;
+      border-radius: 34px;
+      background: #0B111E;
+      padding: 9px;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 229, 255, 0.25);
+      max-height: 70vh;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .lightbox-notch {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 54px;
+      height: 6px;
+      background: #1e293b;
+      border-radius: 999px;
+      z-index: 5;
+    }
+
+    .lightbox-phone-frame img {
+      max-height: calc(70vh - 18px);
+      width: auto;
+      border-radius: 26px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .lightbox-info {
+      margin-top: 16px;
+      text-align: center;
+      max-width: 540px;
+    }
+
+    .lightbox-counter {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .lightbox-info h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .lightbox-info p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
     /* How it works */
     .setup-steps {
       padding: 60px 0 80px;
@@ -394,6 +1038,12 @@
       border-radius: 20px;
       padding: 32px;
       position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 229, 255, 0.3);
     }
 
     .step-num {
@@ -449,12 +1099,42 @@
       text-decoration: underline;
     }
 
+    @media (max-width: 860px) {
+      .hero-devices {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .hero-device {
+        flex: 0 0 auto;
+        width: 250px;
+        transform: none !important;
+      }
+      .hero-conn-bridge {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 280px;
+      }
+      .lightbox-prev {
+        left: 10px;
+      }
+      .lightbox-next {
+        right: 10px;
+      }
+      .lightbox-close {
+        top: -40px;
+        right: 10px;
+      }
+    }
+
     @media (max-width: 640px) {
       .hero {
         padding: 50px 0 40px;
       }
       .header-actions {
         gap: 8px;
+      }
+      .header-nav {
+        display: none;
       }
       .badge-zero-cloud {
         display: none;
@@ -469,6 +1149,21 @@
       .pricing-card {
         padding: 18px 20px;
       }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-card {
+        padding: 20px;
+      }
+      .phone-mockup {
+        width: 190px;
+      }
+      .lightbox-phone-frame {
+        max-height: 60vh;
+      }
+      .lightbox-phone-frame img {
+        max-height: calc(60vh - 18px);
+      }
     }
   </style>
 </head>
@@ -481,6 +1176,11 @@
         <span>Vule Baby Monitor</span>
       </a>
       <div class="header-actions">
+        <nav class="header-nav">
+          <a href="#screens" class="nav-link" data-i18n="navScreens">Screenshots</a>
+          <a href="#features" class="nav-link" data-i18n="navFeatures">Features</a>
+          <a href="#how-it-works" class="nav-link" data-i18n="navHowItWorks">How It Works</a>
+        </nav>
         <div class="badge-zero-cloud" data-i18n="badgeZeroCloud">
           🔒 100% Zero-Cloud
         </div>
@@ -531,7 +1231,7 @@
 
         <!-- PRICING & PLAY STORE CARD -->
         <div class="pricing-card">
-          <div class="pricing-icon">💎</div>
+          <div class="pricing-icon">💡</div>
           <div class="pricing-content">
             <h3 data-i18n="pricingTitle">100% Free • Google Play Store</h3>
             <p data-i18n="pricingDesc">
@@ -539,13 +1239,73 @@
             </p>
           </div>
         </div>
+
+        <!-- HERO DUAL-DEVICE SHOWCASE -->
+        <div class="hero-showcase">
+          <div class="showcase-badge-wrap">
+            <div class="showcase-badge" data-i18n="heroPairBadge">
+              ⚡ Local Wi-Fi Direct · Real-Time Dual Phone Link
+            </div>
+          </div>
+          
+          <div class="hero-devices">
+            <!-- Left: Baby Unit -->
+            <div class="hero-device hero-device-baby" onclick="openLightbox(3)" title="Click to view Baby Unit screen">
+              <div class="device-label">
+                <span class="device-dot dot-baby"></span>
+                <span data-i18n="heroBabyLabel">Baby Unit · Nursery</span>
+              </div>
+              <div class="device-frame">
+                <div class="device-notch"></div>
+                <img src="img/screen-baby-unit.jpg" alt="Baby Unit Screen" loading="eager">
+                <div class="device-overlay-tag tag-quiet" data-i18n="heroBabyStatus">
+                  🌙 Room Quiet · 84 RMS
+                </div>
+              </div>
+            </div>
+
+            <!-- Center: Connection Beam -->
+            <div class="hero-conn-bridge">
+              <div class="conn-pulse-line">
+                <div class="conn-pulse-dot"></div>
+              </div>
+              <div class="conn-badge">
+                <span class="conn-icon">🔒</span>
+                <span class="conn-text" data-i18n="heroConnText">
+                  Local ChaCha20 AEAD<br>
+                  <strong>0 Cloud · &lt; 20ms</strong>
+                </span>
+              </div>
+              <div class="conn-pulse-line">
+                <div class="conn-pulse-dot reverse"></div>
+              </div>
+            </div>
+
+            <!-- Right: Parent Unit -->
+            <div class="hero-device hero-device-parent" onclick="openLightbox(0)" title="Click to view Parent Unit screen">
+              <div class="device-label">
+                <span class="device-dot dot-parent"></span>
+                <span data-i18n="heroParentLabel">Parent Unit · Bedside</span>
+              </div>
+              <div class="device-frame">
+                <div class="device-notch"></div>
+                <img src="img/screen-parent-unit.jpg" alt="Parent Unit Screen" loading="eager">
+                <div class="device-overlay-tag tag-battery" data-i18n="heroParentStatus">
+                  ⚡ 100% Baby Battery · Wi-Fi
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- FEATURES -->
-    <section class="features">
+    <section class="features" id="features">
       <div class="container">
         <div class="section-header">
+          <div class="section-tag" data-i18n="featuresBadge">🌟 Core Architecture</div>
           <h2 data-i18n="featuresHeading">Designed for Peaceful Nights</h2>
           <p data-i18n="featuresSubtitle">All functionality operates strictly within your local home network.</p>
         </div>
@@ -558,7 +1318,7 @@
           </div>
 
           <div class="card">
-            <div class="card-icon">⚡</div>
+            <div class="card-icon">🔋</div>
             <h3 data-i18n="f2Title">Maximum Battery Savings</h3>
             <p data-i18n="f2Desc">When baby is quiet (Silence-on-Wire), audio stream and hardware DAC shut down, keeping the phone processor in Deep Sleep (C-state). Streams only on real sound.</p>
           </div>
@@ -582,7 +1342,7 @@
           </div>
 
           <div class="card">
-            <div class="card-icon">🔒</div>
+            <div class="card-icon">🔐</div>
             <h3 data-i18n="f6Title">Military Encryption & FHD Photo</h3>
             <p data-i18n="f6Desc">ChaCha20-Poly1305 AEAD + ECDH with 4-digit zero-typing PIN, two-way Talk-Back with echo suppression, and true sensor-resolution photos with NACK recovery.</p>
           </div>
@@ -590,10 +1350,147 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="setup-steps">
+    <!-- APP SCREENSHOTS SHOWCASE -->
+    <section class="gallery-section" id="screens">
       <div class="container">
         <div class="section-header">
+          <div class="section-tag" data-i18n="galleryBadge">📸 Real In-App Screenshots</div>
+          <h2 data-i18n="galleryHeading">Designed for Peaceful Nights & Sleepy Eyes</h2>
+          <p data-i18n="gallerySubtitle">OLED dark mode, instant glanceability, high contrast, and zero blinding glare in dark bedrooms.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="gallery-filters" role="tablist">
+          <button type="button" class="filter-btn active" data-filter="all" data-i18n="filterAll">All Screens (6)</button>
+          <button type="button" class="filter-btn" data-filter="parent" data-i18n="filterParent">Parent Unit</button>
+          <button type="button" class="filter-btn" data-filter="baby" data-i18n="filterBaby">Baby Unit</button>
+          <button type="button" class="filter-btn" data-filter="settings" data-i18n="filterSettings">Settings & Setup</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+          <!-- Card 1: Parent Bedside (screen-parent-unit.jpg) -->
+          <div class="gallery-card" data-category="parent" onclick="openLightbox(0)">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="img/screen-parent-unit.jpg" alt="Parent Nightstand Dashboard" loading="lazy">
+              </div>
+              <div class="phone-zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="zoomHint">Tap to enlarge</span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span class="card-pill pill-parent" data-i18n="pillParent">Parent Unit</span>
+              <h3 data-i18n="sc1Title">Parent Nightstand Dashboard</h3>
+              <p data-i18n="sc1Desc">Peace of mind at a single glance. Live baby phone battery percentage with charging badge, Wi-Fi health, quick pause, and instant one-tap video or audio listening.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Live Video & PiP (screen-live-video.jpg) -->
+          <div class="gallery-card" data-category="parent" onclick="openLightbox(1)">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="img/screen-live-video.jpg" alt="Live Camera Stream and PiP" loading="lazy">
+              </div>
+              <div class="phone-zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="zoomHint">Tap to enlarge</span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span class="card-pill pill-parent" data-i18n="pillParent">Parent Unit</span>
+              <h3 data-i18n="sc2Title">Live Video & PiP Stream</h3>
+              <p data-i18n="sc2Desc">Hardware-accelerated Camera2 JPEG stream (~5 fps for zero heating), remote gentle flashlight, 90° rotation, floating Picture-in-Picture mode, and still photo capture.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Parent Settings (screen-parent-settings.jpg) -->
+          <div class="gallery-card" data-category="parent settings" onclick="openLightbox(2)">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="img/screen-parent-settings.jpg" alt="Parent Settings and Alert Rules" loading="lazy">
+              </div>
+              <div class="phone-zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="zoomHint">Tap to enlarge</span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span class="card-pill pill-settings" data-i18n="pillSettings">Parent Settings</span>
+              <h3 data-i18n="sc3Title">Smart Alert Thresholds & Rules</h3>
+              <p data-i18n="sc3Desc">Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Baby Unit (screen-baby-unit.jpg) -->
+          <div class="gallery-card" data-category="baby" onclick="openLightbox(3)">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="img/screen-baby-unit.jpg" alt="Baby Unit Room Guardian" loading="lazy">
+              </div>
+              <div class="phone-zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="zoomHint">Tap to enlarge</span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span class="card-pill pill-baby" data-i18n="pillBaby">Baby Unit</span>
+              <h3 data-i18n="sc4Title">Baby Room Guardian & Sound Meter</h3>
+              <p data-i18n="sc4Desc">Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.</p>
+            </div>
+          </div>
+
+          <!-- Card 5: Baby Settings & SAS PIN (screen-baby-settings.jpg) -->
+          <div class="gallery-card" data-category="baby settings" onclick="openLightbox(4)">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="img/screen-baby-settings.jpg" alt="Baby Settings and SAS PIN" loading="lazy">
+              </div>
+              <div class="phone-zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="zoomHint">Tap to enlarge</span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span class="card-pill pill-settings" data-i18n="pillSettings">Baby Settings</span>
+              <h3 data-i18n="sc5Title">Camera Quality & Zero-Typing PIN</h3>
+              <p data-i18n="sc5Desc">Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.</p>
+            </div>
+          </div>
+
+          <!-- Card 6: Role Selection (screen-role-select.jpg) -->
+          <div class="gallery-card" data-category="settings" onclick="openLightbox(5)">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="img/screen-role-select.jpg" alt="Instant Role Selection" loading="lazy">
+              </div>
+              <div class="phone-zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="zoomHint">Tap to enlarge</span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span class="card-pill pill-setup" data-i18n="pillSetup">Instant Setup</span>
+              <h3 data-i18n="sc6Title">One-Tap Role Selection</h3>
+              <p data-i18n="sc6Desc">Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. They discover each other immediately on your home Wi-Fi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="setup-steps" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag" data-i18n="stepsBadge">🚀 Instant Setup</div>
           <h2 data-i18n="stepsHeading">How It Works in 3 Steps</h2>
           <p data-i18n="stepsSubtitle">No complex configuration — works straight out of the box.</p>
         </div>
@@ -621,10 +1518,31 @@
     </section>
   </main>
 
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Screenshot Preview">
+    <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close modal">&times;</button>
+      <button type="button" class="lightbox-nav lightbox-prev" onclick="prevLightbox()" aria-label="Previous image">&#10094;</button>
+      <button type="button" class="lightbox-nav lightbox-next" onclick="nextLightbox()" aria-label="Next image">&#10095;</button>
+
+      <div class="lightbox-phone-frame">
+        <div class="lightbox-notch"></div>
+        <img id="lightboxImg" src="" alt="Enlarged screenshot">
+      </div>
+
+      <div class="lightbox-info">
+        <div class="lightbox-counter"><span id="lightboxCur">1</span> / <span id="lightboxTotal">6</span></div>
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDesc"></p>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="container">
       <p class="dedication" data-i18n="dedication">
-        Za Vukotu, od ćaleta Luke ❤️
+        For Vukota, crafted with love by dad Luka ❤️
       </p>
       <div class="footer-links">
         <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest" data-i18n="footerDownload">Download BabyMonitor.apk</a>
@@ -635,10 +1553,120 @@
   </footer>
 
   <script>
+    const screenshotsData = [
+      {
+        src: "img/screen-parent-unit.jpg",
+        title_en: "Parent Nightstand Dashboard",
+        title_sr: "Glavni Ekran Roditelja (Noćni Stočić)",
+        desc_en: "Glanceable peace of mind with live baby phone battery percentage and charging badge, Wi-Fi link status, quick pause, and instant one-tap video or audio listening.",
+        desc_sr: "Miran san na jedan pogled. Nivo baterije i status punjenja bebi telefona u realnom vremenu, kvalitet Wi-Fi veze, brza pauza i tasteri za video i govor."
+      },
+      {
+        src: "img/screen-live-video.jpg",
+        title_en: "Live Camera Stream & PiP",
+        title_sr: "Live Video Prenos i PiP Prozorčić",
+        desc_en: "Hardware Camera2 JPEG stream (~5 fps for zero heating), remote gentle flashlight, 90° rotation, floating Picture-in-Picture window, and still photo capture.",
+        desc_sr: "Hardverski Camera2 JPEG strim bez grejanja telefona (~5 fps), daljinsko noćno svetlo (blic), rotacija za 90°, lebdeći PiP prozor i hardverska fotografija."
+      },
+      {
+        src: "img/screen-parent-settings.jpg",
+        title_en: "Parent Settings & Smart Alert Rules",
+        title_sr: "Podešavanja Roditelja i Pametna Upozorenja",
+        desc_en: "Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.",
+        desc_sr: "Slajder za precizan prag jačine zvuka, detekcija tihog kenjkanja, zaobilaženje Ne uznemiravaj (DND) režima i automatski prikaz videa preko zaključanog ekrana."
+      },
+      {
+        src: "img/screen-baby-unit.jpg",
+        title_en: "Baby Room Guardian & Sound Meter",
+        title_sr: "Bebi Jedinica i Merač Jačine Zvuka",
+        desc_en: "Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.",
+        desc_sr: "Tišina u etru (Silence-on-Wire) čuva bateriju i drži telefon hladnim. Merač jačine zvuka (RMS) u realnom vremenu i pretpregled kamere pre izlaska iz sobe."
+      },
+      {
+        src: "img/screen-baby-settings.jpg",
+        title_en: "Baby Settings & Zero-Typing SAS PIN",
+        title_sr: "Podešavanja Bebe i Zaštitni SAS PIN",
+        desc_en: "Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.",
+        desc_sr: "Izbor rezolucije strima: 360p Eco, 480p Standard ili 720p HD. Autorizacija roditeljskih telefona uz 4-cifreni kriptografski SAS PIN protiv neovlašćenog pristupa."
+      },
+      {
+        src: "img/screen-role-select.jpg",
+        title_en: "One-Tap Role Selection",
+        title_sr: "Izbor Uloge Jednim Dodirom",
+        desc_en: "Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. Automatic instant pairing on your Wi-Fi network.",
+        desc_sr: "Bez registracije, lozinki i e-mailova. Otvorite aplikaciju na dva telefona, dodirnite Beba na jednom i Roditelj na drugom. Uparivanje je trenutno i automatsko."
+      }
+    ];
+
+    let currentScreenshotIdx = 0;
+
+    function openLightbox(idx) {
+      currentScreenshotIdx = idx;
+      updateLightboxContent();
+      const modal = document.getElementById('lightboxModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function prevLightbox() {
+      currentScreenshotIdx = (currentScreenshotIdx - 1 + screenshotsData.length) % screenshotsData.length;
+      updateLightboxContent();
+    }
+
+    function nextLightbox() {
+      currentScreenshotIdx = (currentScreenshotIdx + 1) % screenshotsData.length;
+      updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+      const data = screenshotsData[currentScreenshotIdx];
+      const lang = currentLang === 'sr' ? 'sr' : 'en';
+      document.getElementById('lightboxImg').src = data.src;
+      document.getElementById('lightboxCur').textContent = currentScreenshotIdx + 1;
+      document.getElementById('lightboxTotal').textContent = screenshotsData.length;
+      document.getElementById('lightboxTitle').textContent = lang === 'sr' ? data.title_sr : data.title_en;
+      document.getElementById('lightboxDesc').textContent = lang === 'sr' ? data.desc_sr : data.desc_en;
+    }
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightboxModal');
+      if (!modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox();
+      if (e.key === 'ArrowRight') nextLightbox();
+    });
+
+    // Filtering logic
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.gallery-card').forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (filter === 'all' || cat.includes(filter)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
     const translations = {
       en: {
         title: "Vule Baby Monitor — 100% Local Wi-Fi Baby Alarm",
         badgeZeroCloud: "🔒 100% Zero-Cloud",
+        navScreens: "Screenshots",
+        navFeatures: "Features",
+        navHowItWorks: "How It Works",
         heroTitle: "Turn your phones into a <br><span class=\"gradient-text\">secure baby monitor</span>",
         heroSubtitle: "Local Wi-Fi transmission with zero cloud, zero accounts, zero internet, and zero subscriptions. Real-time audio, video on demand, smart nightstand wake-up, and military-grade encryption.",
         btnPrimary: "<span>⬇️</span> Download BabyMonitor.apk",
@@ -649,6 +1677,13 @@
         metaPrivacy: "✓ 100% Private & Local",
         pricingTitle: "100% Free • Google Play Store",
         pricingDesc: "The app is <strong>100% free</strong> to download directly here. An identical build will also be available on the Google Play Store with the exact same features, zero ads, and zero subscriptions.",
+        heroPairBadge: "⚡ Local Wi-Fi Direct · Real-Time Dual Phone Link",
+        heroBabyLabel: "Baby Unit · Nursery",
+        heroBabyStatus: "🌙 Room Quiet · 84 RMS",
+        heroConnText: "Local ChaCha20 AEAD<br><strong>0 Cloud · &lt; 20ms</strong>",
+        heroParentLabel: "Parent Unit · Bedside",
+        heroParentStatus: "⚡ 100% Baby Battery · Wi-Fi",
+        featuresBadge: "🌟 Core Architecture",
         featuresHeading: "Designed for Peaceful Nights",
         featuresSubtitle: "All functionality operates strictly within your local home network.",
         f1Title: "100% Zero-Cloud Privacy",
@@ -663,6 +1698,31 @@
         f5Desc: "When sound is detected overnight, the parent phone automatically turns on and displays live video directly over the lock screen without unlocking.",
         f6Title: "Military Encryption & FHD Photo",
         f6Desc: "ChaCha20-Poly1305 AEAD + ECDH with 4-digit zero-typing PIN, two-way Talk-Back with echo suppression, and true sensor-resolution photos with NACK recovery.",
+        galleryBadge: "📸 Real In-App Screenshots",
+        galleryHeading: "Designed for Peaceful Nights & Sleepy Eyes",
+        gallerySubtitle: "OLED dark mode, instant glanceability, high contrast, and zero blinding glare in dark bedrooms.",
+        filterAll: "All Screens (6)",
+        filterParent: "Parent Unit",
+        filterBaby: "Baby Unit",
+        filterSettings: "Settings & Setup",
+        zoomHint: "Tap to enlarge",
+        pillParent: "Parent Unit",
+        pillBaby: "Baby Unit",
+        pillSettings: "Settings & Security",
+        pillSetup: "Instant Setup",
+        sc1Title: "Parent Nightstand Dashboard",
+        sc1Desc: "Peace of mind at a single glance. Live baby phone battery percentage with charging badge, Wi-Fi health, quick pause, and instant one-tap video or audio listening.",
+        sc2Title: "Live Video & PiP Stream",
+        sc2Desc: "Hardware-accelerated Camera2 JPEG stream (~5 fps for zero heating), remote gentle flashlight, 90° rotation, floating Picture-in-Picture mode, and still photo capture.",
+        sc3Title: "Smart Alert Thresholds & Rules",
+        sc3Desc: "Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.",
+        sc4Title: "Baby Room Guardian & Sound Meter",
+        sc4Desc: "Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.",
+        sc5Title: "Camera Quality & Zero-Typing PIN",
+        sc5Desc: "Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.",
+        sc6Title: "One-Tap Role Selection",
+        sc6Desc: "Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. They discover each other immediately on your home Wi-Fi.",
+        stepsBadge: "🚀 Quick Setup",
         stepsHeading: "How It Works in 3 Steps",
         stepsSubtitle: "No complex configuration — works straight out of the box.",
         s1Title: "Install APK",
@@ -678,6 +1738,9 @@
       sr: {
         title: "Vule Baby Monitor — 100% Lokalni Wi-Fi Bebi Alarm",
         badgeZeroCloud: "🔒 100% Zero-Cloud",
+        navScreens: "Ekrani",
+        navFeatures: "Mogućnosti",
+        navHowItWorks: "Kako radi",
         heroTitle: "Pretvorite telefone u <br><span class=\"gradient-text\">bezbedan bebi alarm</span>",
         heroSubtitle: "Lokalni Wi-Fi prenos bez oblaka, bez naloga, bez interneta i bez pretplate. Zvuk, video na zahtev, pametni noćni dnevnik i vojna enkripcija.",
         btnPrimary: "<span>⬇️</span> Preuzmi BabyMonitor.apk",
@@ -688,6 +1751,13 @@
         metaPrivacy: "✓ Potpuna privatnost",
         pricingTitle: "100% Besplatno • Google Play Prodavnica",
         pricingDesc: "Aplikacija je <strong>100% besplatna</strong> za preuzimanje direktno ovde. Identičan build će biti dostupan i na Google Play prodavnici sa potpuno istim funkcijama, bez reklama i bez pretplate.",
+        heroPairBadge: "⚡ Direktna Lokalna Wi-Fi Veza Između Telefona",
+        heroBabyLabel: "Bebi Jedinica · Soba",
+        heroBabyStatus: "🌙 Soba mirna · 84 RMS",
+        heroConnText: "Lokalna ChaCha20 AEAD<br><strong>0 Cloud · &lt; 20ms</strong>",
+        heroParentLabel: "Roditelj · Noćni Stočić",
+        heroParentStatus: "⚡ 100% Baterija Bebe · Wi-Fi",
+        featuresBadge: "🌟 Glavne Mogućnosti",
         featuresHeading: "Napravljeno za Miran San Roditelja",
         featuresSubtitle: "Sve funkcije rade isključivo u okviru vaše lokalne kućne mreže.",
         f1Title: "100% Zero-Cloud & Privatnost",
@@ -702,6 +1772,31 @@
         f5Desc: "Kada se noću detektuje zvuk, roditeljski telefon se automatski sam pali i prikazuje live video direktno preko zaključanog ekrana bez otključavanja.",
         f6Title: "Vojna Enkripcija & FHD Fotografija",
         f6Desc: "ChaCha20-Poly1305 AEAD + ECDH sa 4-cifrenim PIN-om bez kucanja, dvosmerni Talk-Back sa supresijom eha i prave hardverske fotografije visoke rezolucije.",
+        galleryBadge: "📸 Pravi Snimci Ekrana",
+        galleryHeading: "Prilagođeno za Noć i Umorne Oči",
+        gallerySubtitle: "Čista OLED tamna tema, visoki kontrast i dizajn bez zaslepljujućih svetala usred noći.",
+        filterAll: "Svi Ekrani (6)",
+        filterParent: "Roditeljska Jedinica",
+        filterBaby: "Bebi Jedinica",
+        filterSettings: "Podešavanja",
+        zoomHint: "Dodir za uvećanje",
+        pillParent: "Roditelj",
+        pillBaby: "Beba",
+        pillSettings: "Podešavanja",
+        pillSetup: "Prvo Pokretanje",
+        sc1Title: "Glavni Ekran Roditelja",
+        sc1Desc: "Miran san na jedan pogled. Nivo baterije i status punjenja bebi telefona u realnom vremenu, kvalitet Wi-Fi veze, brza pauza i tasteri za video i zvuk.",
+        sc2Title: "Live Video Prenos & PiP",
+        sc2Desc: "Hardverski Camera2 JPEG strim bez grejanja telefona (~5 fps), daljinsko noćno svetlo (blic), rotacija za 90°, lebdeći PiP prozor i hardverska fotografija.",
+        sc3Title: "Prag Zvuka i Pravila Alarma",
+        sc3Desc: "Slajder za precizan prag jačine zvuka, detekcija tihog kenjkanja, zaobilaženje Ne uznemiravaj (DND) režima i automatski prikaz videa preko zaključanog ekrana.",
+        sc4Title: "Nadzor Sobe i Merač Zvuka",
+        sc4Desc: "Tišina u etru (Silence-on-Wire) čuva bateriju i drži telefon hladnim. Merač jačine zvuka (RMS) u realnom vremenu i pretpregled kamere pre izlaska iz sobe.",
+        sc5Title: "Kvalitet Kamere i SAS PIN",
+        sc5Desc: "Izbor rezolucije strima: 360p Eco, 480p Standard ili 720p HD. Autorizacija roditeljskih telefona uz 4-cifreni kriptografski SAS PIN protiv neovlašćenog pristupa.",
+        sc6Title: "Izbor Uloge Jednim Dodirom",
+        sc6Desc: "Bez registracije, lozinki i e-mailova. Otvorite aplikaciju na dva telefona, dodirnite Beba na jednom i Roditelj na drugom. Uparivanje je trenutno i automatsko.",
+        stepsBadge: "🚀 Brzo Pokretanje",
         stepsHeading: "Kako se Koristi u 3 Koraka",
         stepsSubtitle: "Bez komplikovanih podešavanja — radi odmah iz kutije.",
         s1Title: "Instalirajte APK",
@@ -732,6 +1827,8 @@
         btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
       });
 
+      updateLightboxContent();
+
       try {
         localStorage.setItem('vule_bm_lang', lang);
       } catch (e) {}
@@ -754,7 +1851,8 @@
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        applyLanguage(btn.getAttribute('data-lang'));
+        currentLang = btn.getAttribute('data-lang');
+        applyLanguage(currentLang);
       });
     });
   </script>
