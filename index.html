@@ -688,8 +688,9 @@
     }
 
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 28px;
     }
 
@@ -706,6 +707,8 @@
       transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
       cursor: pointer;
       position: relative;
+      flex: 0 1 340px;
+      width: 100%;
     }
 
     .gallery-card:hover {
@@ -825,6 +828,12 @@
       background: rgba(0, 229, 255, 0.14);
       color: #00E5FF;
       border: 1px solid rgba(0, 229, 255, 0.35);
+    }
+
+    .pill-pip {
+      background: rgba(56, 189, 248, 0.16);
+      color: #38BDF8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
     }
 
     .pill-settings {
@@ -1093,6 +1102,25 @@
       color: var(--primary);
       text-decoration: none;
       margin: 0 8px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #67e8f9;
+      text-decoration: underline;
+    }
+
+    .author-link {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: rgba(0, 229, 255, 0.45);
+      text-underline-offset: 3px;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+
+    .author-link:hover {
+      color: var(--primary);
+      text-decoration-color: var(--primary);
     }
 
     .footer-links a:hover {
@@ -1361,7 +1389,7 @@
 
         <!-- Filter Tabs -->
         <div class="gallery-filters" role="tablist">
-          <button type="button" class="filter-btn active" data-filter="all" data-i18n="filterAll">All Screens (6)</button>
+          <button type="button" class="filter-btn active" data-filter="all" data-i18n="filterAll">All Screens (7)</button>
           <button type="button" class="filter-btn" data-filter="parent" data-i18n="filterParent">Parent Unit</button>
           <button type="button" class="filter-btn" data-filter="baby" data-i18n="filterBaby">Baby Unit</button>
           <button type="button" class="filter-btn" data-filter="settings" data-i18n="filterSettings">Settings & Setup</button>
@@ -1388,12 +1416,12 @@
             </div>
           </div>
 
-          <!-- Card 2: Live Video & PiP (screen-live-video.jpg) -->
+          <!-- Card 2: Live Video Stream (screen-live-video.jpg) -->
           <div class="gallery-card" data-category="parent" onclick="openLightbox(1)">
             <div class="phone-mockup">
               <div class="phone-notch"></div>
               <div class="phone-screen">
-                <img src="img/screen-live-video.jpg" alt="Live Camera Stream and PiP" loading="lazy">
+                <img src="img/screen-live-video.jpg" alt="Live Camera Stream and Controls" loading="lazy">
               </div>
               <div class="phone-zoom-hint">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
@@ -1402,13 +1430,32 @@
             </div>
             <div class="card-meta">
               <span class="card-pill pill-parent" data-i18n="pillParent">Parent Unit</span>
-              <h3 data-i18n="sc2Title">Live Video & PiP Stream</h3>
-              <p data-i18n="sc2Desc">Hardware-accelerated Camera2 JPEG stream (~5 fps for zero heating), remote gentle flashlight, 90° rotation, floating Picture-in-Picture mode, and still photo capture.</p>
+              <h3 data-i18n="sc2Title">Live Video & Night Light</h3>
+              <p data-i18n="sc2Desc">Hardware-accelerated Camera2 JPEG stream (~5 fps for zero heating), remote gentle flashlight, 90° rotation, and still photo capture.</p>
             </div>
           </div>
 
-          <!-- Card 3: Parent Settings (screen-parent-settings.jpg) -->
-          <div class="gallery-card" data-category="parent settings" onclick="openLightbox(2)">
+          <!-- Card 3: Floating Picture-in-Picture (screen-pip-mode.jpg) -->
+          <div class="gallery-card" data-category="parent" onclick="openLightbox(2)">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="img/screen-pip-mode.jpg" alt="Floating Picture-in-Picture Mode" loading="lazy">
+              </div>
+              <div class="phone-zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="zoomHint">Tap to enlarge</span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span class="card-pill pill-pip" data-i18n="pillPip">Picture-in-Picture</span>
+              <h3 data-i18n="sc3Title">Floating Picture-in-Picture (PiP)</h3>
+              <p data-i18n="sc3Desc">Multitask freely on your phone while watching your baby. The floating PiP overlay stays on top across other apps and automatically reconnects upon unlocking.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Parent Settings (screen-parent-settings.jpg) -->
+          <div class="gallery-card" data-category="parent settings" onclick="openLightbox(3)">
             <div class="phone-mockup">
               <div class="phone-notch"></div>
               <div class="phone-screen">
@@ -1421,13 +1468,13 @@
             </div>
             <div class="card-meta">
               <span class="card-pill pill-settings" data-i18n="pillSettings">Parent Settings</span>
-              <h3 data-i18n="sc3Title">Smart Alert Thresholds & Rules</h3>
-              <p data-i18n="sc3Desc">Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.</p>
+              <h3 data-i18n="sc4Title">Smart Alert Thresholds & Rules</h3>
+              <p data-i18n="sc4Desc">Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.</p>
             </div>
           </div>
 
-          <!-- Card 4: Baby Unit (screen-baby-unit.jpg) -->
-          <div class="gallery-card" data-category="baby" onclick="openLightbox(3)">
+          <!-- Card 5: Baby Unit (screen-baby-unit.jpg) -->
+          <div class="gallery-card" data-category="baby" onclick="openLightbox(4)">
             <div class="phone-mockup">
               <div class="phone-notch"></div>
               <div class="phone-screen">
@@ -1440,13 +1487,13 @@
             </div>
             <div class="card-meta">
               <span class="card-pill pill-baby" data-i18n="pillBaby">Baby Unit</span>
-              <h3 data-i18n="sc4Title">Baby Room Guardian & Sound Meter</h3>
-              <p data-i18n="sc4Desc">Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.</p>
+              <h3 data-i18n="sc5Title">Baby Room Guardian & Sound Meter</h3>
+              <p data-i18n="sc5Desc">Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.</p>
             </div>
           </div>
 
-          <!-- Card 5: Baby Settings & SAS PIN (screen-baby-settings.jpg) -->
-          <div class="gallery-card" data-category="baby settings" onclick="openLightbox(4)">
+          <!-- Card 6: Baby Settings & SAS PIN (screen-baby-settings.jpg) -->
+          <div class="gallery-card" data-category="baby settings" onclick="openLightbox(5)">
             <div class="phone-mockup">
               <div class="phone-notch"></div>
               <div class="phone-screen">
@@ -1459,13 +1506,13 @@
             </div>
             <div class="card-meta">
               <span class="card-pill pill-settings" data-i18n="pillSettings">Baby Settings</span>
-              <h3 data-i18n="sc5Title">Camera Quality & Zero-Typing PIN</h3>
-              <p data-i18n="sc5Desc">Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.</p>
+              <h3 data-i18n="sc6Title">Camera Quality & Zero-Typing PIN</h3>
+              <p data-i18n="sc6Desc">Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.</p>
             </div>
           </div>
 
-          <!-- Card 6: Role Selection (screen-role-select.jpg) -->
-          <div class="gallery-card" data-category="settings" onclick="openLightbox(5)">
+          <!-- Card 7: Role Selection (screen-role-select.jpg) -->
+          <div class="gallery-card" data-category="settings" onclick="openLightbox(6)">
             <div class="phone-mockup">
               <div class="phone-notch"></div>
               <div class="phone-screen">
@@ -1478,8 +1525,8 @@
             </div>
             <div class="card-meta">
               <span class="card-pill pill-setup" data-i18n="pillSetup">Instant Setup</span>
-              <h3 data-i18n="sc6Title">One-Tap Role Selection</h3>
-              <p data-i18n="sc6Desc">Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. They discover each other immediately on your home Wi-Fi.</p>
+              <h3 data-i18n="sc7Title">One-Tap Role Selection</h3>
+              <p data-i18n="sc7Desc">Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. They discover each other immediately on your home Wi-Fi.</p>
             </div>
           </div>
         </div>
@@ -1532,7 +1579,7 @@
       </div>
 
       <div class="lightbox-info">
-        <div class="lightbox-counter"><span id="lightboxCur">1</span> / <span id="lightboxTotal">6</span></div>
+        <div class="lightbox-counter"><span id="lightboxCur">1</span> / <span id="lightboxTotal">7</span></div>
         <h3 id="lightboxTitle"></h3>
         <p id="lightboxDesc"></p>
       </div>
@@ -1542,12 +1589,14 @@
   <footer>
     <div class="container">
       <p class="dedication" data-i18n="dedication">
-        For Vukota, crafted with love by dad Luka ❤️
+        For Vukota, crafted with love by dad <a href="https://lukamilosevic.github.io/" class="author-link" target="_blank" rel="noopener noreferrer">Luka</a> ❤️
       </p>
       <div class="footer-links">
         <a href="https://github.com/lukamilosevic/vulebabymonitor/releases/latest" data-i18n="footerDownload">Download BabyMonitor.apk</a>
         •
         <a href="https://github.com/lukamilosevic/vulebabymonitor" data-i18n="footerSource">GitHub Repository</a>
+        •
+        <a href="https://lukamilosevic.github.io/" target="_blank" rel="noopener noreferrer" data-i18n="footerAuthor">lukamilosevic.github.io</a>
       </div>
     </div>
   </footer>
@@ -1563,10 +1612,17 @@
       },
       {
         src: "img/screen-live-video.jpg",
-        title_en: "Live Camera Stream & PiP",
-        title_sr: "Live Video Prenos i PiP Prozorčić",
-        desc_en: "Hardware Camera2 JPEG stream (~5 fps for zero heating), remote gentle flashlight, 90° rotation, floating Picture-in-Picture window, and still photo capture.",
-        desc_sr: "Hardverski Camera2 JPEG strim bez grejanja telefona (~5 fps), daljinsko noćno svetlo (blic), rotacija za 90°, lebdeći PiP prozor i hardverska fotografija."
+        title_en: "Live Camera Stream & Night Light",
+        title_sr: "Live Video Prenos i Noćno Svetlo",
+        desc_en: "Hardware Camera2 JPEG stream (~5 fps for zero heating), remote gentle flashlight, 90° rotation, and still photo capture.",
+        desc_sr: "Hardverski Camera2 JPEG strim bez grejanja telefona (~5 fps), daljinsko noćno svetlo (blic), rotacija za 90° i fotografija visoke rezolucije."
+      },
+      {
+        src: "img/screen-pip-mode.jpg",
+        title_en: "Floating Picture-in-Picture (PiP)",
+        title_sr: "Picture-in-Picture (PiP) Lebdeći Prozor",
+        desc_en: "Multitask freely while keeping an eye on your baby. Minimizing the app floats a smooth live video overlay that automatically stays on top and auto-reconnects on unlock.",
+        desc_sr: "Nesmetano koristite telefon dok beba mirno spava. Lebdeći PiP prozorčić ostaje na vrhu ekrana i automatski obnavlja video pri otključavanju."
       },
       {
         src: "img/screen-parent-settings.jpg",
@@ -1701,7 +1757,7 @@
         galleryBadge: "📸 Real In-App Screenshots",
         galleryHeading: "Designed for Peaceful Nights & Sleepy Eyes",
         gallerySubtitle: "OLED dark mode, instant glanceability, high contrast, and zero blinding glare in dark bedrooms.",
-        filterAll: "All Screens (6)",
+        filterAll: "All Screens (7)",
         filterParent: "Parent Unit",
         filterBaby: "Baby Unit",
         filterSettings: "Settings & Setup",
@@ -1710,18 +1766,21 @@
         pillBaby: "Baby Unit",
         pillSettings: "Settings & Security",
         pillSetup: "Instant Setup",
+        pillPip: "Picture-in-Picture",
         sc1Title: "Parent Nightstand Dashboard",
         sc1Desc: "Peace of mind at a single glance. Live baby phone battery percentage with charging badge, Wi-Fi health, quick pause, and instant one-tap video or audio listening.",
-        sc2Title: "Live Video & PiP Stream",
-        sc2Desc: "Hardware-accelerated Camera2 JPEG stream (~5 fps for zero heating), remote gentle flashlight, 90° rotation, floating Picture-in-Picture mode, and still photo capture.",
-        sc3Title: "Smart Alert Thresholds & Rules",
-        sc3Desc: "Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.",
-        sc4Title: "Baby Room Guardian & Sound Meter",
-        sc4Desc: "Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.",
-        sc5Title: "Camera Quality & Zero-Typing PIN",
-        sc5Desc: "Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.",
-        sc6Title: "One-Tap Role Selection",
-        sc6Desc: "Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. They discover each other immediately on your home Wi-Fi.",
+        sc2Title: "Live Video & Night Light",
+        sc2Desc: "Hardware-accelerated Camera2 JPEG stream (~5 fps for zero heating), remote gentle flashlight, 90° rotation, and still photo capture.",
+        sc3Title: "Floating Picture-in-Picture (PiP)",
+        sc3Desc: "Multitask freely on your phone while watching your baby. The floating PiP overlay stays on top across other apps and automatically reconnects upon unlocking.",
+        sc4Title: "Smart Alert Thresholds & Rules",
+        sc4Desc: "Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.",
+        sc5Title: "Baby Room Guardian & Sound Meter",
+        sc5Desc: "Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.",
+        sc6Title: "Camera Quality & Zero-Typing PIN",
+        sc6Desc: "Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.",
+        sc7Title: "One-Tap Role Selection",
+        sc7Desc: "Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. They discover each other immediately on your home Wi-Fi.",
         stepsBadge: "🚀 Quick Setup",
         stepsHeading: "How It Works in 3 Steps",
         stepsSubtitle: "No complex configuration — works straight out of the box.",
@@ -1731,9 +1790,10 @@
         s2Desc: "Connect both phones to the same Wi-Fi router (or turn on Hotspot on one phone without mobile data).",
         s3Title: "Choose Roles",
         s3Desc: "On one device tap <strong>👶 Baby</strong>, and on the other tap <strong>👪 Parent</strong>. Pairing is instant!",
-        dedication: "For Vukota, crafted with love by dad Luka ❤️",
+        dedication: 'For Vukota, crafted with love by dad <a href="https://lukamilosevic.github.io/" class="author-link" target="_blank" rel="noopener noreferrer">Luka</a> ❤️',
         footerDownload: "Download BabyMonitor.apk",
-        footerSource: "GitHub Repository"
+        footerSource: "GitHub Repository",
+        footerAuthor: "lukamilosevic.github.io"
       },
       sr: {
         title: "Vule Baby Monitor — 100% Lokalni Wi-Fi Bebi Alarm",
@@ -1775,7 +1835,7 @@
         galleryBadge: "📸 Pravi Snimci Ekrana",
         galleryHeading: "Prilagođeno za Noć i Umorne Oči",
         gallerySubtitle: "Čista OLED tamna tema, visoki kontrast i dizajn bez zaslepljujućih svetala usred noći.",
-        filterAll: "Svi Ekrani (6)",
+        filterAll: "Svi Ekrani (7)",
         filterParent: "Roditeljska Jedinica",
         filterBaby: "Bebi Jedinica",
         filterSettings: "Podešavanja",
@@ -1784,18 +1844,21 @@
         pillBaby: "Beba",
         pillSettings: "Podešavanja",
         pillSetup: "Prvo Pokretanje",
+        pillPip: "Picture-in-Picture",
         sc1Title: "Glavni Ekran Roditelja",
         sc1Desc: "Miran san na jedan pogled. Nivo baterije i status punjenja bebi telefona u realnom vremenu, kvalitet Wi-Fi veze, brza pauza i tasteri za video i zvuk.",
-        sc2Title: "Live Video Prenos & PiP",
-        sc2Desc: "Hardverski Camera2 JPEG strim bez grejanja telefona (~5 fps), daljinsko noćno svetlo (blic), rotacija za 90°, lebdeći PiP prozor i hardverska fotografija.",
-        sc3Title: "Prag Zvuka i Pravila Alarma",
-        sc3Desc: "Slajder za precizan prag jačine zvuka, detekcija tihog kenjkanja, zaobilaženje Ne uznemiravaj (DND) režima i automatski prikaz videa preko zaključanog ekrana.",
-        sc4Title: "Nadzor Sobe i Merač Zvuka",
-        sc4Desc: "Tišina u etru (Silence-on-Wire) čuva bateriju i drži telefon hladnim. Merač jačine zvuka (RMS) u realnom vremenu i pretpregled kamere pre izlaska iz sobe.",
-        sc5Title: "Kvalitet Kamere i SAS PIN",
-        sc5Desc: "Izbor rezolucije strima: 360p Eco, 480p Standard ili 720p HD. Autorizacija roditeljskih telefona uz 4-cifreni kriptografski SAS PIN protiv neovlašćenog pristupa.",
-        sc6Title: "Izbor Uloge Jednim Dodirom",
-        sc6Desc: "Bez registracije, lozinki i e-mailova. Otvorite aplikaciju na dva telefona, dodirnite Beba na jednom i Roditelj na drugom. Uparivanje je trenutno i automatsko.",
+        sc2Title: "Live Video Prenos & Noćno Svetlo",
+        sc2Desc: "Hardverski Camera2 JPEG strim bez grejanja telefona (~5 fps), daljinsko noćno svetlo (blic), rotacija za 90° i fotografija visoke rezolucije.",
+        sc3Title: "Picture-in-Picture (PiP) Lebdeći Prozor",
+        sc3Desc: "Nesmetano koristite telefon dok beba mirno spava. Lebdeći PiP prozorčić ostaje na vrhu ekrana i automatski obnavlja video pri otključavanju.",
+        sc4Title: "Prag Zvuka i Pravila Alarma",
+        sc4Desc: "Slajder za precizan prag jačine zvuka, detekcija tihog kenjkanja, zaobilaženje Ne uznemiravaj (DND) režima i automatski prikaz videa preko zaključanog ekrana.",
+        sc5Title: "Nadzor Sobe i Merač Zvuka",
+        sc5Desc: "Tišina u etru (Silence-on-Wire) čuva bateriju i drži telefon hladnim. Merač jačine zvuka (RMS) u realnom vremenu i pretpregled kamere pre izlaska iz sobe.",
+        sc6Title: "Kvalitet Kamere i SAS PIN",
+        sc6Desc: "Izbor rezolucije strima: 360p Eco, 480p Standard ili 720p HD. Autorizacija roditeljskih telefona uz 4-cifreni kriptografski SAS PIN protiv neovlašćenog pristupa.",
+        sc7Title: "Izbor Uloge Jednim Dodirom",
+        sc7Desc: "Bez registracije, lozinki i e-mailova. Otvorite aplikaciju na dva telefona, dodirnite Beba na jednom i Roditelj na drugom. Uparivanje je trenutno i automatsko.",
         stepsBadge: "🚀 Brzo Pokretanje",
         stepsHeading: "Kako se Koristi u 3 Koraka",
         stepsSubtitle: "Bez komplikovanih podešavanja — radi odmah iz kutije.",
@@ -1805,9 +1868,10 @@
         s2Desc: "Povežite telefone na istu Wi-Fi mrežu (ili uključite Hotspot na jednom bez trošenja interneta).",
         s3Title: "Izaberite Uloge",
         s3Desc: "Na jednom telefonu pritisnite <strong>👶 Beba</strong>, a na drugom <strong>👪 Roditelj</strong>. Uparivanje je trenutno!",
-        dedication: "Za Vukotu, od ćaleta Luke ❤️",
+        dedication: 'Za Vukotu, od ćaleta <a href="https://lukamilosevic.github.io/" class="author-link" target="_blank" rel="noopener noreferrer">Luke</a> ❤️',
         footerDownload: "Preuzmi BabyMonitor.apk",
-        footerSource: "GitHub Repozitorijum"
+        footerSource: "GitHub Repozitorijum",
+        footerAuthor: "lukamilosevic.github.io"
       }
     };
 
