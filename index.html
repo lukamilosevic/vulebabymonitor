@@ -836,6 +836,18 @@
       border: 1px solid rgba(56, 189, 248, 0.35);
     }
 
+    .pill-history {
+      background: rgba(244, 63, 94, 0.16);
+      color: #FB7185;
+      border: 1px solid rgba(244, 63, 94, 0.35);
+    }
+
+    .pill-actions {
+      background: rgba(139, 92, 246, 0.16);
+      color: #C4B5FD;
+      border: 1px solid rgba(139, 92, 246, 0.35);
+    }
+
     .pill-settings {
       background: rgba(124, 77, 255, 0.16);
       color: #A78BFA;
@@ -1389,7 +1401,7 @@
 
         <!-- Filter Tabs -->
         <div class="gallery-filters" role="tablist">
-          <button type="button" class="filter-btn active" data-filter="all" data-i18n="filterAll">All Screens (7)</button>
+          <button type="button" class="filter-btn active" data-filter="all" data-i18n="filterAll">All Screens (9)</button>
           <button type="button" class="filter-btn" data-filter="parent" data-i18n="filterParent">Parent Unit</button>
           <button type="button" class="filter-btn" data-filter="baby" data-i18n="filterBaby">Baby Unit</button>
           <button type="button" class="filter-btn" data-filter="settings" data-i18n="filterSettings">Settings & Setup</button>
@@ -1454,27 +1466,8 @@
             </div>
           </div>
 
-          <!-- Card 4: Parent Settings (screen-parent-settings.jpg) -->
-          <div class="gallery-card" data-category="parent settings" onclick="openLightbox(3)">
-            <div class="phone-mockup">
-              <div class="phone-notch"></div>
-              <div class="phone-screen">
-                <img src="img/screen-parent-settings.jpg" alt="Parent Settings and Alert Rules" loading="lazy">
-              </div>
-              <div class="phone-zoom-hint">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-                <span data-i18n="zoomHint">Tap to enlarge</span>
-              </div>
-            </div>
-            <div class="card-meta">
-              <span class="card-pill pill-settings" data-i18n="pillSettings">Parent Settings</span>
-              <h3 data-i18n="sc4Title">Smart Alert Thresholds & Rules</h3>
-              <p data-i18n="sc4Desc">Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.</p>
-            </div>
-          </div>
-
-          <!-- Card 5: Baby Unit (screen-baby-unit.jpg) -->
-          <div class="gallery-card" data-category="baby" onclick="openLightbox(4)">
+          <!-- Card 4: Baby Room Guardian (screen-baby-unit.jpg) -->
+          <div class="gallery-card" data-category="baby" onclick="openLightbox(3)">
             <div class="phone-mockup">
               <div class="phone-notch"></div>
               <div class="phone-screen">
@@ -1487,13 +1480,70 @@
             </div>
             <div class="card-meta">
               <span class="card-pill pill-baby" data-i18n="pillBaby">Baby Unit</span>
-              <h3 data-i18n="sc5Title">Baby Room Guardian & Sound Meter</h3>
-              <p data-i18n="sc5Desc">Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.</p>
+              <h3 data-i18n="sc4Title">Baby Room Guardian & Sound Meter</h3>
+              <p data-i18n="sc4Desc">Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.</p>
             </div>
           </div>
 
-          <!-- Card 6: Baby Settings & SAS PIN (screen-baby-settings.jpg) -->
-          <div class="gallery-card" data-category="baby settings" onclick="openLightbox(5)">
+          <!-- Card 5: Detection History & Night Log (screen-detection-history.jpg) -->
+          <div class="gallery-card" data-category="parent" onclick="openLightbox(4)">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="img/screen-detection-history.jpg" alt="Night Log and Detection History" loading="lazy">
+              </div>
+              <div class="phone-zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="zoomHint">Tap to enlarge</span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span class="card-pill pill-history" data-i18n="pillHistory">Detection History</span>
+              <h3 data-i18n="sc5Title">Night Log & Sound History</h3>
+              <p data-i18n="sc5Desc">Automatic overnight timeline records every baby sound event with exact timestamp and duration in seconds, plus connection drop monitoring.</p>
+            </div>
+          </div>
+
+          <!-- Card 6: Notification Quick Actions (screen-notification-actions.jpg) -->
+          <div class="gallery-card" data-category="parent" onclick="openLightbox(5)">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="img/screen-notification-actions.jpg" alt="Lock Screen Notification Actions" loading="lazy">
+              </div>
+              <div class="phone-zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="zoomHint">Tap to enlarge</span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span class="card-pill pill-actions" data-i18n="pillActions">Quick Actions</span>
+              <h3 data-i18n="sc6Title">Lock Screen Notification Actions</h3>
+              <p data-i18n="sc6Desc">Control monitoring directly from your lock screen without unlocking: quick pause for +15 minutes, pause indefinitely, or launch live video instantly.</p>
+            </div>
+          </div>
+
+          <!-- Card 7: Parent Settings (screen-parent-settings.jpg) -->
+          <div class="gallery-card" data-category="parent settings" onclick="openLightbox(6)">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="img/screen-parent-settings.jpg" alt="Parent Settings and Alert Rules" loading="lazy">
+              </div>
+              <div class="phone-zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="zoomHint">Tap to enlarge</span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span class="card-pill pill-settings" data-i18n="pillSettings">Parent Settings</span>
+              <h3 data-i18n="sc7Title">Smart Alert Thresholds & Rules</h3>
+              <p data-i18n="sc7Desc">Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.</p>
+            </div>
+          </div>
+
+          <!-- Card 8: Baby Settings & SAS PIN (screen-baby-settings.jpg) -->
+          <div class="gallery-card" data-category="baby settings" onclick="openLightbox(7)">
             <div class="phone-mockup">
               <div class="phone-notch"></div>
               <div class="phone-screen">
@@ -1506,13 +1556,13 @@
             </div>
             <div class="card-meta">
               <span class="card-pill pill-settings" data-i18n="pillSettings">Baby Settings</span>
-              <h3 data-i18n="sc6Title">Camera Quality & Zero-Typing PIN</h3>
-              <p data-i18n="sc6Desc">Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.</p>
+              <h3 data-i18n="sc8Title">Camera Quality & Zero-Typing PIN</h3>
+              <p data-i18n="sc8Desc">Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.</p>
             </div>
           </div>
 
-          <!-- Card 7: Role Selection (screen-role-select.jpg) -->
-          <div class="gallery-card" data-category="settings" onclick="openLightbox(6)">
+          <!-- Card 9: Role Selection (screen-role-select.jpg) -->
+          <div class="gallery-card" data-category="settings" onclick="openLightbox(8)">
             <div class="phone-mockup">
               <div class="phone-notch"></div>
               <div class="phone-screen">
@@ -1525,11 +1575,11 @@
             </div>
             <div class="card-meta">
               <span class="card-pill pill-setup" data-i18n="pillSetup">Instant Setup</span>
-              <h3 data-i18n="sc7Title">One-Tap Role Selection</h3>
-              <p data-i18n="sc7Desc">Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. They discover each other immediately on your home Wi-Fi.</p>
+              <h3 data-i18n="sc9Title">One-Tap Role Selection</h3>
+              <p data-i18n="sc9Desc">Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. They discover each other immediately on your home Wi-Fi.</p>
             </div>
           </div>
-        </div>
+        </div></div>
       </div>
     </section>
 
@@ -1579,7 +1629,7 @@
       </div>
 
       <div class="lightbox-info">
-        <div class="lightbox-counter"><span id="lightboxCur">1</span> / <span id="lightboxTotal">7</span></div>
+        <div class="lightbox-counter"><span id="lightboxCur">1</span> / <span id="lightboxTotal">9</span></div>
         <h3 id="lightboxTitle"></h3>
         <p id="lightboxDesc"></p>
       </div>
@@ -1625,18 +1675,32 @@
         desc_sr: "Nesmetano koristite telefon dok beba mirno spava. Lebdeći PiP prozorčić ostaje na vrhu ekrana i automatski obnavlja video pri otključavanju."
       },
       {
-        src: "img/screen-parent-settings.jpg",
-        title_en: "Parent Settings & Smart Alert Rules",
-        title_sr: "Podešavanja Roditelja i Pametna Upozorenja",
-        desc_en: "Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.",
-        desc_sr: "Slajder za precizan prag jačine zvuka, detekcija tihog kenjkanja, zaobilaženje Ne uznemiravaj (DND) režima i automatski prikaz videa preko zaključanog ekrana."
-      },
-      {
         src: "img/screen-baby-unit.jpg",
         title_en: "Baby Room Guardian & Sound Meter",
         title_sr: "Bebi Jedinica i Merač Jačine Zvuka",
         desc_en: "Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.",
         desc_sr: "Tišina u etru (Silence-on-Wire) čuva bateriju i drži telefon hladnim. Merač jačine zvuka (RMS) u realnom vremenu i pretpregled kamere pre izlaska iz sobe."
+      },
+      {
+        src: "img/screen-detection-history.jpg",
+        title_en: "Night Log & Detection History",
+        title_sr: "Noćni Dnevnik i Istorija Zvuka",
+        desc_en: "Automatic overnight timeline records every baby sound event with exact timestamp and duration in seconds, plus connection drop monitoring.",
+        desc_sr: "Automatska evidencija svih oglašavanja bebe tokom noći sa tačnim vremenom, trajanjem u sekundama i pregledom prekida veze."
+      },
+      {
+        src: "img/screen-notification-actions.jpg",
+        title_en: "Lock Screen Notification Quick Actions",
+        title_sr: "Brze Akcije u Notifikaciji na Zaključanom Ekranu",
+        desc_en: "Control monitoring directly from your lock screen without unlocking: quick pause for +15 minutes, pause indefinitely, or launch live video instantly.",
+        desc_sr: "Upravljajte nadzorom direktno sa zaključanog ekrana bez otključavanja telefona: brza pauza na +15 min, trajna pauza ili direktan prelazak na video."
+      },
+      {
+        src: "img/screen-parent-settings.jpg",
+        title_en: "Parent Settings & Smart Alert Rules",
+        title_sr: "Podešavanja Roditelja i Pametna Upozorenja",
+        desc_en: "Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.",
+        desc_sr: "Slajder za precizan prag jačine zvuka, detekcija tihog kenjkanja, zaobilaženje Ne uznemiravaj (DND) režima i automatski prikaz videa preko zaključanog ekrana."
       },
       {
         src: "img/screen-baby-settings.jpg",
@@ -1757,7 +1821,7 @@
         galleryBadge: "📸 Real In-App Screenshots",
         galleryHeading: "Designed for Peaceful Nights & Sleepy Eyes",
         gallerySubtitle: "OLED dark mode, instant glanceability, high contrast, and zero blinding glare in dark bedrooms.",
-        filterAll: "All Screens (7)",
+        filterAll: "All Screens (9)",
         filterParent: "Parent Unit",
         filterBaby: "Baby Unit",
         filterSettings: "Settings & Setup",
@@ -1767,20 +1831,26 @@
         pillSettings: "Settings & Security",
         pillSetup: "Instant Setup",
         pillPip: "Picture-in-Picture",
+        pillHistory: "Detection History",
+        pillActions: "Lock Screen Actions",
         sc1Title: "Parent Nightstand Dashboard",
         sc1Desc: "Peace of mind at a single glance. Live baby phone battery percentage with charging badge, Wi-Fi health, quick pause, and instant one-tap video or audio listening.",
         sc2Title: "Live Video & Night Light",
         sc2Desc: "Hardware-accelerated Camera2 JPEG stream (~5 fps for zero heating), remote gentle flashlight, 90° rotation, and still photo capture.",
         sc3Title: "Floating Picture-in-Picture (PiP)",
         sc3Desc: "Multitask freely on your phone while watching your baby. The floating PiP overlay stays on top across other apps and automatically reconnects upon unlocking.",
-        sc4Title: "Smart Alert Thresholds & Rules",
-        sc4Desc: "Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.",
-        sc5Title: "Baby Room Guardian & Sound Meter",
-        sc5Desc: "Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.",
-        sc6Title: "Camera Quality & Zero-Typing PIN",
-        sc6Desc: "Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.",
-        sc7Title: "One-Tap Role Selection",
-        sc7Desc: "Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. They discover each other immediately on your home Wi-Fi.",
+        sc4Title: "Baby Room Guardian & Sound Meter",
+        sc4Desc: "Silence-on-wire deep sleep keeps phone cool and saves battery. Live calibrated RMS room loudness meter and camera angle preview before leaving baby's room.",
+        sc5Title: "Night Log & Sound History",
+        sc5Desc: "Automatic overnight timeline records every baby sound event with exact timestamp and duration in seconds, plus connection drop monitoring.",
+        sc6Title: "Lock Screen Notification Actions",
+        sc6Desc: "Control monitoring directly from your lock screen without unlocking: quick pause for +15 minutes, pause indefinitely, or launch live video instantly.",
+        sc7Title: "Smart Alert Thresholds & Rules",
+        sc7Desc: "Fine-tune the VOX sound threshold slider, enable soft vocal whimper detection, activate DND override for urgent alerts, and auto-wake video directly over the lock screen.",
+        sc8Title: "Camera Quality & Zero-Typing PIN",
+        sc8Desc: "Select video streaming resolution (360p Eco, 480p Standard, 720p HD). Authenticate parent phones with cryptographic 4-digit SAS PIN to eliminate man-in-the-middle risks.",
+        sc9Title: "One-Tap Role Selection",
+        sc9Desc: "Zero logins, zero passwords, zero emails. Open the app on two phones, tap Baby on one and Parent on the other. They discover each other immediately on your home Wi-Fi.",
         stepsBadge: "🚀 Quick Setup",
         stepsHeading: "How It Works in 3 Steps",
         stepsSubtitle: "No complex configuration — works straight out of the box.",
@@ -1835,7 +1905,7 @@
         galleryBadge: "📸 Pravi Snimci Ekrana",
         galleryHeading: "Prilagođeno za Noć i Umorne Oči",
         gallerySubtitle: "Čista OLED tamna tema, visoki kontrast i dizajn bez zaslepljujućih svetala usred noći.",
-        filterAll: "Svi Ekrani (7)",
+        filterAll: "Svi Ekrani (9)",
         filterParent: "Roditeljska Jedinica",
         filterBaby: "Bebi Jedinica",
         filterSettings: "Podešavanja",
@@ -1845,20 +1915,26 @@
         pillSettings: "Podešavanja",
         pillSetup: "Prvo Pokretanje",
         pillPip: "Picture-in-Picture",
+        pillHistory: "Noćni Dnevnik",
+        pillActions: "Brze Akcije",
         sc1Title: "Glavni Ekran Roditelja",
         sc1Desc: "Miran san na jedan pogled. Nivo baterije i status punjenja bebi telefona u realnom vremenu, kvalitet Wi-Fi veze, brza pauza i tasteri za video i zvuk.",
         sc2Title: "Live Video Prenos & Noćno Svetlo",
         sc2Desc: "Hardverski Camera2 JPEG strim bez grejanja telefona (~5 fps), daljinsko noćno svetlo (blic), rotacija za 90° i fotografija visoke rezolucije.",
         sc3Title: "Picture-in-Picture (PiP) Lebdeći Prozor",
         sc3Desc: "Nesmetano koristite telefon dok beba mirno spava. Lebdeći PiP prozorčić ostaje na vrhu ekrana i automatski obnavlja video pri otključavanju.",
-        sc4Title: "Prag Zvuka i Pravila Alarma",
-        sc4Desc: "Slajder za precizan prag jačine zvuka, detekcija tihog kenjkanja, zaobilaženje Ne uznemiravaj (DND) režima i automatski prikaz videa preko zaključanog ekrana.",
-        sc5Title: "Nadzor Sobe i Merač Zvuka",
-        sc5Desc: "Tišina u etru (Silence-on-Wire) čuva bateriju i drži telefon hladnim. Merač jačine zvuka (RMS) u realnom vremenu i pretpregled kamere pre izlaska iz sobe.",
-        sc6Title: "Kvalitet Kamere i SAS PIN",
-        sc6Desc: "Izbor rezolucije strima: 360p Eco, 480p Standard ili 720p HD. Autorizacija roditeljskih telefona uz 4-cifreni kriptografski SAS PIN protiv neovlašćenog pristupa.",
-        sc7Title: "Izbor Uloge Jednim Dodirom",
-        sc7Desc: "Bez registracije, lozinki i e-mailova. Otvorite aplikaciju na dva telefona, dodirnite Beba na jednom i Roditelj na drugom. Uparivanje je trenutno i automatsko.",
+        sc4Title: "Nadzor Sobe i Merač Zvuka",
+        sc4Desc: "Tišina u etru (Silence-on-Wire) čuva bateriju i drži telefon hladnim. Merač jačine zvuka (RMS) u realnom vremenu i pretpregled kamere pre izlaska iz sobe.",
+        sc5Title: "Noćni Dnevnik i Istorija Zvuka",
+        sc5Desc: "Automatska evidencija svih oglašavanja bebe tokom noći sa tačnim vremenom, trajanjem u sekundama i pregledom prekida veze.",
+        sc6Title: "Brze Akcije u Notifikaciji",
+        sc6Desc: "Upravljajte nadzorom direktno sa zaključanog ekrana bez otključavanja telefona: brza pauza na +15 min, trajna pauza ili direktan prelazak na video.",
+        sc7Title: "Prag Zvuka i Pravila Alarma",
+        sc7Desc: "Slajder za precizan prag jačine zvuka, detekcija tihog kenjkanja, zaobilaženje Ne uznemiravaj (DND) režima i automatski prikaz videa preko zaključanog ekrana.",
+        sc8Title: "Kvalitet Kamere i SAS PIN",
+        sc8Desc: "Izbor rezolucije strima: 360p Eco, 480p Standard ili 720p HD. Autorizacija roditeljskih telefona uz 4-cifreni kriptografski SAS PIN protiv neovlašćenog pristupa.",
+        sc9Title: "Izbor Uloge Jednim Dodirom",
+        sc9Desc: "Bez registracije, lozinki i e-mailova. Otvorite aplikaciju na dva telefona, dodirnite Beba na jednom i Roditelj na drugom. Uparivanje je trenutno i automatsko.",
         stepsBadge: "🚀 Brzo Pokretanje",
         stepsHeading: "Kako se Koristi u 3 Koraka",
         stepsSubtitle: "Bez komplikovanih podešavanja — radi odmah iz kutije.",
